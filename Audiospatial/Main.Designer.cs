@@ -106,6 +106,7 @@
             this.final1.parentForm = null;
             this.final1.Size = new System.Drawing.Size(747, 374);
             this.final1.TabIndex = 12;
+            this.final1.Load += new System.EventHandler(this.final1_Load);
             // 
             // sesto_Scenario1
             // 
@@ -159,7 +160,7 @@
             // 
             // primo_Scenario1
             // 
-            this.primo_Scenario1.BackColor = System.Drawing.Color.Transparent;
+            this.primo_Scenario1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.primo_Scenario1.BackgroundImage = global::Audiospatial.Properties.Resources.bedsingle;
             this.primo_Scenario1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.primo_Scenario1.Location = new System.Drawing.Point(31, -95);
