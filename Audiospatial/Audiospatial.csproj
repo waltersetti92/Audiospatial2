@@ -167,6 +167,12 @@
     <Compile Include="Terzo_Scenario.Designer.cs">
       <DependentUpon>Terzo_Scenario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucSpeaker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucSpeaker.Designer.cs">
+      <DependentUpon>ucSpeaker.cs</DependentUpon>
+    </Compile>
     <Compile Include="uda_server_communication.cs" />
     <EmbeddedResource Include="ActivityUdaUC.resx">
       <DependentUpon>ActivityUdaUC.cs</DependentUpon>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Terzo_Scenario.resx">
       <DependentUpon>Terzo_Scenario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucSpeaker.resx">
+      <DependentUpon>ucSpeaker.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

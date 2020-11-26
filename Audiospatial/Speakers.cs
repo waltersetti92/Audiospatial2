@@ -13,6 +13,7 @@ namespace Audiospatial
         private string com = "";
         public readonly string comFile;
         public bool isOpened = false;
+        public string sound_speaker="03";
 
         //                                                  west  north  east
         public static string[] available_speakers = new string[3] { "02", "03", "04" };
@@ -34,6 +35,7 @@ namespace Audiospatial
         {
             return SerialPort.GetPortNames();
         }
+
         private string getSavedCom()
         {
             if (File.Exists(comFile) is true) return File.ReadAllText(comFile);
@@ -70,6 +72,7 @@ namespace Audiospatial
             int cnt = 0;
             foreach (String hex in hexValuesSplit)
             {
+               
                 arr[cnt] = Convert.ToByte(hex, 16);
                 cnt++;
             }
@@ -85,49 +88,42 @@ namespace Audiospatial
             byte[] bytes;
             foreach (string speaker in available_speakers)
             {
-                str = "F5 02 " + speaker + " 21 01 02 04 F0";
+                str = "F5 02 " + speaker + " 21 " + sound_speaker + " 03 04 F0";
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
 
-                str = "F5 02 " + speaker + " 21 01 02 04 F0";
+                str = "F5 02 " + speaker + " 21 " + sound_speaker + " 03 04 F0";
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
 
-                str = "F5 02 " + speaker + " 21 01 02 04 F0";
+                str = "F5 02 " + speaker + " 21 " + sound_speaker + " 03 04 F0";
+                bytes = hexstr2ByteArray(str);
+                sp.Write(bytes, 0, bytes.Length);
+                Thread.Sleep(200);
+                str = "F5 02 " + speaker + " 21 " + sound_speaker + " 03 04 F0";
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
 
-                str = "F5 02 " + speaker + " 21 01 02 04 F0";
+                str = "F5 02 " + speaker + " 21 " + sound_speaker + " 03 04 F0";
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
 
-                str = "F5 02 " + speaker + " 21 01 02 04 F0";
+                str = "F5 02 " + speaker + " 21 " + sound_speaker + " 03 04 F0";
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
 
-                str = "F5 02 " + speaker + " 21 01 02 04 F0";
-                bytes = hexstr2ByteArray(str);
-                sp.Write(bytes, 0, bytes.Length);
-                Thread.Sleep(200);
+
             }
 
-            if (test)
-            {
-                foreach (string speaker in available_speakers)
-                {
-                    startSpeaker(speaker);
-                    Thread.Sleep(2000);
-                }
-            }
             return true;
         }
 
-        public bool startSpeaker(string speaker, string sound = "01")
+        public bool startSpeaker(string speaker)
         {
             if (sp == null)
                 return false;
@@ -136,7 +132,7 @@ namespace Audiospatial
 
             string str;
             byte[] bytes;
-            str = "F5 02 " + speaker + " 20 01 02 04 F0";
+            str = "F5 02 " + speaker + " 20 " + sound_speaker + " 03 04 F0";
             bytes = hexstr2ByteArray(str);
             sp.Write(bytes, 0, bytes.Length);
 

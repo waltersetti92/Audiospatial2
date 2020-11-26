@@ -59,6 +59,7 @@ namespace Audiospatial
             quarto_Scenario1.parentForm = this;
             quinto_Scenario1.parentForm = this;
             sesto_Scenario1.parentForm = this;
+            ucSpeaker1.parentForm = this;
             final1.parentForm = this;
             initial1.Visible = false;
             activityUdaUC1.Visible = false;
@@ -72,7 +73,9 @@ namespace Audiospatial
             quarto_Scenario1.Visible = false;
             quinto_Scenario1.Visible = false;
             sesto_Scenario1.Visible = false;
+            ucSpeaker1.Visible = false;
             final1.Visible = false;
+            ucSpeaker1.init(speakers);
             home();
             BackgroundImageLayout = ImageLayout.Stretch;
             BackgroundImage = Image.FromFile(resourcesPath + "\\" + background_image);
@@ -171,6 +174,8 @@ namespace Audiospatial
                 activityUdaUC1.Visible = false;
                BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_stanza);
+                speakers.sound_speaker = "02";
+                speakers.reinitSpeakers();                
                 primo_Scenario1.Visible = true;
             }
            else if (onactivity == 2)
@@ -351,6 +356,11 @@ namespace Audiospatial
         private void final1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btTestSpeakers_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

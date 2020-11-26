@@ -13,13 +13,14 @@ namespace Audiospatial
     public partial class Primo_Scenario : UserControl
     {
         public Main parentForm { get; set; }
+        public Speakers speakers = null;
+
         public Primo_Scenario()
         {
             InitializeComponent();
             this.BackgroundImage = Properties.Resources.lion;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            //this.BackgroundImage = Properties.Resources.bed2;
-            // this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            speakers = new Speakers();
         }
         public void setPos(int w, int h)
         {
@@ -53,6 +54,7 @@ namespace Audiospatial
 
         private void Start_Click(object sender, EventArgs e)
         {
+            speakers.sound_speaker = "03";
            parentForm.closeMessage();
         }
 
