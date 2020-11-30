@@ -45,7 +45,6 @@ namespace Audiospatial
             scenario = 1;
             participants = 0;
             speakers = new Speakers();
-            Business_Logic BL = new Business_Logic(this);
             InitializeComponent();                       
             initial1.parentForm = this;
             activityUdaUC1.parentForm = this;
