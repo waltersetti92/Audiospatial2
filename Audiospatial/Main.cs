@@ -151,7 +151,7 @@ namespace Audiospatial
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            Size size = this.Size;
+            Size size = this.Size; //commit
             initial1.setPos(size.Width, size.Height);
             activityUdaUC1.setPos(size.Width, size.Height);
             primo_Scenario1.setPos(size.Width, size.Height);
