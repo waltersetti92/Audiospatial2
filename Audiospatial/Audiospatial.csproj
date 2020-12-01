@@ -108,6 +108,12 @@
     <Compile Include="Final.Designer.cs">
       <DependentUpon>Final.cs</DependentUpon>
     </Compile>
+    <Compile Include="Finale_Scenario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Finale_Scenario.Designer.cs">
+      <DependentUpon>Finale_Scenario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Initial.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Final.resx">
       <DependentUpon>Final.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Finale_Scenario.resx">
+      <DependentUpon>Finale_Scenario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Initial.resx">
       <DependentUpon>Initial.cs</DependentUpon>
@@ -336,6 +345,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\alarm1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wakeup.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wakeup1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -61,6 +61,7 @@ namespace Audiospatial
             sesto_Scenario1.parentForm = this;
             ucSpeaker1.parentForm = this;
             final1.parentForm = this;
+            finale_Scenario1.parentForm = this;
             initial1.Visible = false;
             activityUdaUC1.Visible = false;
             primo_Scenario1.Visible = false;
@@ -75,6 +76,7 @@ namespace Audiospatial
             sesto_Scenario1.Visible = false;
             ucSpeaker1.Visible = false;
             final1.Visible = false;
+            finale_Scenario1.Visible = false;
             ucSpeaker1.init(speakers);
             home();
             BackgroundImageLayout = ImageLayout.Stretch;
@@ -105,6 +107,12 @@ namespace Audiospatial
             messageUC1.Visible = false;
             activity_Stanza1.Visible = true;
             message_callback?.Invoke();
+        }
+        public void finale()
+        {
+            if (currUC != null) currUC.Visible = false;
+            finale_Scenario1.Show();
+            currUC = finale_Scenario1;
         }
         public void home()
         {
@@ -163,7 +171,7 @@ namespace Audiospatial
             quarto_Scenario1.setPos(size.Width, size.Height);
             quinto_Scenario1.setPos(size.Width, size.Height);
            sesto_Scenario1.setPos(size.Width, size.Height);
-            final1.setPos(size.Width, size.Height);
+            finale_Scenario1.setPos(size.Width, size.Height);
         }
         public void onStartActivity(int level, int type, int num_participants, string group)
         {
@@ -300,10 +308,11 @@ namespace Audiospatial
             }
             else if (onactivity == 7)
             {
-                this.Visible = false;
-                final1.Show();
-                currUC = final1;
-                //messageUC1.setMessage("Complimenti !!! Hai superato l'ostacolo del leone!  il tesoro", "continua");
+                messageUC1.setMessage("Complimenti !!! Hai recuperato il reperto!", "continua");
+               // this.Visible = false;
+             //   finale_Scenario1.Visible=true;
+              //  currUC = finale_Scenario1;
+              
             }
             message_callback = scenes;
         }
@@ -313,7 +322,7 @@ namespace Audiospatial
             message_callback = clb;
             if (messaggio == 1)
                 primo_Scenario1.setMessage_ps(bt_text);
-            else if (messaggio==2)
+            else if (messaggio == 2)
                 secondo_Scenario1.setMessage_ps(bt_text);
             else if (messaggio == 3)
                 terzo_Scenario1.setMessage_ps(bt_text);
@@ -321,8 +330,10 @@ namespace Audiospatial
                 quarto_Scenario1.setMessage_ps(bt_text);
             else if (messaggio == 5)
                 quinto_Scenario1.setMessage_ps(bt_text);
-            else if (messaggio == 5)
+            else if (messaggio == 6)
                 sesto_Scenario1.setMessage_ps(bt_text);
+            else if (messaggio == 7)
+                finale_Scenario1.Visible = true;
         }
         public void onCountDownEnd()
         {
