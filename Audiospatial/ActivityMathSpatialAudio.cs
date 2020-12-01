@@ -100,13 +100,18 @@ namespace Audiospatial
 
             if (currParticipant == iParticipants)
             {
+                form.ripetiz = 0;
                 form.onEndActivities();     // LUDA FINISHED !!!!
                 return;
             }
+
             else if (currParticipant == 0)
                 onEndParticipant();         // FIRST PARTICIPANT !!!!
-            else
-                form.showMessage("GRAZIE DI AVER PARTECIPATO !!! tocca al tuo compagno", "comincia", onEndParticipant);
+            else if (currParticipant < iParticipants)
+            {
+                form.piu_partecipanti();
+               
+            }
         }
 
         private void onEndParticipant()

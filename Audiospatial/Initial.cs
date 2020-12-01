@@ -35,5 +35,10 @@ namespace Audiospatial
             labLuda.Location = new Point(w / 2 - labLuda.Width / 2 - offset, 200);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            parentForm.onStart();
+        }
     }
 }

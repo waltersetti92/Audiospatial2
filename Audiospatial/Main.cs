@@ -36,6 +36,7 @@ namespace Audiospatial
         public int participants;
         public int iDifficulty = 0;
         public int scenario;
+        public int ripetiz = 0;
         ResumeFromMessage message_callback = null;
         public Speakers speakers = null;
         public Main()
@@ -92,21 +93,19 @@ namespace Audiospatial
             }
         }
 
-        public void Status_Changed(string k)
+        public void piu_partecipanti()
+
         {
-            this.BeginInvoke((Action)delegate ()
-            {
-                int status = int.Parse(k);
-                if (status == 1)
-                {
-                    onStart();
-                }
-                if (status == 2)
-                {
-                    Application.Exit();
-                }
-            });
-        }    
+            currUC.Visible = false;
+            ripetiz = 1;
+            messageUC1.setMessage("GRAZIE DI AVER PARTECIPATO !!! tocca al tuo compagno", "comincia");
+        }
+        public void closeMessage1()
+        {
+            messageUC1.Visible = false;
+            activity_Stanza1.Visible = true;
+            message_callback?.Invoke();
+        }
         public void home()
         {
             if (currUC != null) currUC.Visible = false;

@@ -61,27 +61,35 @@ namespace Audiospatial
         private void btClose_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            if (parentForm.onactivity == 2)
+            if (parentForm.onactivity == 2 && parentForm.ripetiz == 0)
             {
-                parentForm.messaggio = 2; // Questo per il messaggio da mandare in show message               
+                parentForm.messaggio = 2; // Questo per il messaggio da mandare in show message  
+                parentForm.onStartActivity(parentForm.iDifficulty, 0, parentForm.participants, "1");
             }
-           else  if (parentForm.onactivity == 3)
+           else  if (parentForm.onactivity == 3 && parentForm.ripetiz == 0)
             {
-                parentForm.messaggio = 3; // Questo per il messaggio da mandare in show message               
+                parentForm.messaggio = 3; // Questo per il messaggio da mandare in show message   
+                parentForm.onStartActivity(parentForm.iDifficulty, 0, parentForm.participants, "1");
             }
-            else if (parentForm.onactivity == 4)
+            else if (parentForm.onactivity == 4 && parentForm.ripetiz == 0)
             {
-                parentForm.messaggio = 4; // Questo per il messaggio da mandare in show message               
+                parentForm.messaggio = 4; // Questo per il messaggio da mandare in show message  
+                parentForm.onStartActivity(parentForm.iDifficulty, 0, parentForm.participants, "1");
             }
-            else if (parentForm.onactivity == 5)
+            else if (parentForm.onactivity == 5 && parentForm.ripetiz == 0)
             {
-                parentForm.messaggio = 5; // Questo per il messaggio da mandare in show message               
+                parentForm.messaggio = 5; // Questo per il messaggio da mandare in show message 
+                parentForm.onStartActivity(parentForm.iDifficulty, 0, parentForm.participants, "1");
             }
-            else if (parentForm.onactivity == 6)
+            else if (parentForm.onactivity == 6 && parentForm.ripetiz == 0)
             {
-                parentForm.messaggio = 6; // Questo per il messaggio da mandare in show message               
+                parentForm.messaggio = 6; // Questo per il messaggio da mandare in show message  
+                parentForm.onStartActivity(parentForm.iDifficulty, 0, parentForm.participants, "1");
             }
-            parentForm.onStartActivity(parentForm.iDifficulty, 0, parentForm.participants, "1");
+            if (parentForm.ripetiz == 1)
+            {
+                parentForm.closeMessage1();
+            }
         }
 
         private void MessageUC_Load(object sender, EventArgs e)

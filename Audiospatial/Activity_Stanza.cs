@@ -27,7 +27,6 @@ namespace Audiospatial
 
         private string currStartingNumber = "";
         private string currResult = "";
-        private Main mn;
         public Activity_Stanza()
         {
             InitializeComponent();
