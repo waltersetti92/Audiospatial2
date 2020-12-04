@@ -210,8 +210,8 @@ namespace Audiospatial
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_tribal);
-                speakers.sound_speaker = "10 0A ";
-                speakers.sound_time = " 0A ";
+                speakers.sound_speaker = "10 0E ";
+                speakers.sound_time = " 10 ";
                 speakers.reinitSpeakers();
                 quarto_Scenario1.Visible = true;
             }
@@ -221,7 +221,7 @@ namespace Audiospatial
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_lion);
                 speakers.sound_speaker = "0E 09 ";
-                speakers.sound_time = " 09 ";
+                speakers.sound_time = " 0A ";
                 speakers.reinitSpeakers();
                 quinto_Scenario1.Visible = true;
             }

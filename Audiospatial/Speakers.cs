@@ -98,31 +98,31 @@ namespace Audiospatial
             byte[] bytes;
             foreach (string speaker in available_speakers)
             {
-                str = "F5 02 " + speaker + " 21 " + sound_speaker  + "04 F0";
+                str = "F5 02 " + speaker + " 21 " + sound_speaker  + "03 F0";
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
 
-                str = "F5 02 " + speaker + " 21 " + sound_speaker  + "04 F0";
+                str = "F5 02 " + speaker + " 21 " + sound_speaker  + "03 F0";
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
 
-                str = "F5 02 " + speaker + " 21 " + sound_speaker + "04 F0";
+                str = "F5 02 " + speaker + " 21 " + sound_speaker + "03 F0";
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
-                str = "F5 02 " + speaker + " 21 " + sound_speaker  + "04 F0";
-                bytes = hexstr2ByteArray(str);
-                sp.Write(bytes, 0, bytes.Length);
-                Thread.Sleep(200);
-
-                str = "F5 02 " + speaker + " 21 " + sound_speaker  + "04 F0";
+                str = "F5 02 " + speaker + " 21 " + sound_speaker  + "03 F0";
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
 
-                str = "F5 02 " + speaker + " 21 " + sound_speaker  + "04 F0";
+                str = "F5 02 " + speaker + " 21 " + sound_speaker  + "03 F0";
+                bytes = hexstr2ByteArray(str);
+                sp.Write(bytes, 0, bytes.Length);
+                Thread.Sleep(200);
+
+                str = "F5 02 " + speaker + " 21 " + sound_speaker  + "03 F0";
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
@@ -142,7 +142,7 @@ namespace Audiospatial
 
             string str;
             byte[] bytes;
-            str = "F5 02 " + speaker + " 20 01 02 04 F0";
+            str = "F5 02 " + speaker + " 20 01 02 03 F0";
            
             bytes = hexstr2ByteArray(str);
             sp.Write(bytes, 0, bytes.Length);
