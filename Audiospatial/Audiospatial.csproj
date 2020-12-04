@@ -352,5 +352,11 @@
   <ItemGroup>
     <None Include="Resources\wakeup1.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Resources\flaute.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Resources\flaute2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

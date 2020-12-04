@@ -54,7 +54,7 @@ namespace Audiospatial
 
         private void Alarm_Click(object sender, EventArgs e)
         {
-            parentForm.playbackResourceAudio("20");
+            parentForm.playbackResourceAudio("Thunder");
         }
     }
 }

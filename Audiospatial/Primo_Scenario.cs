@@ -54,13 +54,13 @@ namespace Audiospatial
 
         private void Start_Click(object sender, EventArgs e)
         {
-            speakers.sound_speaker = "03";
+          //  speakers.sound_speaker = "03";
            parentForm.closeMessage();
         }
 
         private void Alarm_Click_1(object sender, EventArgs e)
         {
-            parentForm.playbackResourceAudio("Alarm_sound");
+            parentForm.playbackResourceAudio("Alarm_sound09");
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

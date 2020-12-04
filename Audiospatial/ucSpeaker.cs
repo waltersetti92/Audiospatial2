@@ -74,5 +74,16 @@ namespace Audiospatial
         {
 
         }
+
+        private void cmbCom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btClose_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+
+        }
     }
 }

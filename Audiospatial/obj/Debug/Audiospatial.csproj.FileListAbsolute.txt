@@ -432,7 +432,6 @@ C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\bin\Debug\System.Text.En
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\bin\Debug\System.Text.Json.xml
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\bin\Debug\System.ValueTuple.xml
-C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.csprojAssemblyReference.cache
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.ActivityUdaUC.resources
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.Activity_Stanza.resources
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.AnswerUC.resources
@@ -455,3 +454,4 @@ C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.c
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.csproj.CopyComplete
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.exe
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.pdb
+C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.csprojAssemblyReference.cache

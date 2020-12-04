@@ -53,6 +53,7 @@
             this.cmbCom.Name = "cmbCom";
             this.cmbCom.Size = new System.Drawing.Size(75, 21);
             this.cmbCom.TabIndex = 10;
+            this.cmbCom.SelectedIndexChanged += new System.EventHandler(this.cmbCom_SelectedIndexChanged);
             // 
             // btSetCom
             // 
@@ -178,6 +179,7 @@
             this.btClose.TabIndex = 26;
             this.btClose.Text = "CLOSE";
             this.btClose.UseVisualStyleBackColor = true;
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // btAll
             // 

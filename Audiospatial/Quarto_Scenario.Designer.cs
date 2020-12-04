@@ -72,9 +72,9 @@
             this.labIstruzioni2.ForeColor = System.Drawing.Color.Black;
             this.labIstruzioni2.Location = new System.Drawing.Point(70, 179);
             this.labIstruzioni2.Name = "labIstruzioni2";
-            this.labIstruzioni2.Size = new System.Drawing.Size(952, 38);
+            this.labIstruzioni2.Size = new System.Drawing.Size(970, 38);
             this.labIstruzioni2.TabIndex = 5;
-            this.labIstruzioni2.Text = "SENTIRAI IL SUONO DEL FUOCO DALLE CASSE DAVANTI A TE";
+            this.labIstruzioni2.Text = "SENTIRAI IL SUONO DEL FLAUTO DALLE CASSE DAVANTI A TE";
             // 
             // label1
             // 
@@ -104,7 +104,7 @@
             // 
             this.Alarm.BackColor = System.Drawing.Color.Transparent;
             this.Alarm.ErrorImage = null;
-            this.Alarm.Image = global::Audiospatial.Properties.Resources.fire;
+            this.Alarm.Image = global::Audiospatial.Properties.Resources.flaute2;
             this.Alarm.Location = new System.Drawing.Point(620, 445);
             this.Alarm.Name = "Alarm";
             this.Alarm.Size = new System.Drawing.Size(294, 174);
@@ -152,7 +152,7 @@
             this.Controls.Add(this.labIndicazioni1);
             this.Controls.Add(this.labPrimoScenario);
             this.Name = "Quarto_Scenario";
-            this.Size = new System.Drawing.Size(876, 894);
+            this.Size = new System.Drawing.Size(970, 894);
             this.Load += new System.EventHandler(this.Quarto_Scenario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Alarm)).EndInit();
             this.ResumeLayout(false);

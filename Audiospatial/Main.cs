@@ -180,7 +180,8 @@ namespace Audiospatial
                 activityUdaUC1.Visible = false;
                BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_stanza);
-                speakers.sound_speaker = "02";
+                speakers.sound_speaker = "13 09 ";
+                speakers.sound_time = " 09 ";
                 speakers.reinitSpeakers();                
                 primo_Scenario1.Visible = true;
             }
@@ -189,6 +190,9 @@ namespace Audiospatial
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_trafficjam);
+                speakers.sound_speaker = "0A 03 ";
+                speakers.sound_time = " 03 ";
+                speakers.reinitSpeakers();
                 secondo_Scenario1.Visible = true;
             }
             else if (onactivity == 3)
@@ -196,6 +200,9 @@ namespace Audiospatial
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_plane);
+                speakers.sound_speaker = "12 09 ";
+                speakers.sound_time = " 09 ";
+                speakers.reinitSpeakers();
                 terzo_Scenario1.Visible = true;
             }
             else if (onactivity == 4)
@@ -203,6 +210,9 @@ namespace Audiospatial
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_tribal);
+                speakers.sound_speaker = "10 0A ";
+                speakers.sound_time = " 0A ";
+                speakers.reinitSpeakers();
                 quarto_Scenario1.Visible = true;
             }
             else if (onactivity == 5)
@@ -210,6 +220,9 @@ namespace Audiospatial
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_lion);
+                speakers.sound_speaker = "0E 09 ";
+                speakers.sound_time = " 09 ";
+                speakers.reinitSpeakers();
                 quinto_Scenario1.Visible = true;
             }
             else if (onactivity == 6)
@@ -217,6 +230,9 @@ namespace Audiospatial
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_maya);
+                speakers.sound_speaker = "07 0A ";
+                speakers.sound_time = " 0A ";
+                speakers.reinitSpeakers();
                 sesto_Scenario1.Visible = true;
             }
 
@@ -370,6 +386,17 @@ namespace Audiospatial
         private void btTestSpeakers_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void finale_Scenario1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            ucSpeaker1.Visible = true;
         }
     }
 }
