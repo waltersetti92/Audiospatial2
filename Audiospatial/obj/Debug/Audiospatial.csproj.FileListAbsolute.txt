@@ -454,4 +454,3 @@ C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.c
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.csproj.CopyComplete
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.exe
 C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.pdb
-C:\Users\Luigi\Source\Repos\Audiospatial25\Audiospatial\obj\Debug\Audiospatial.csprojAssemblyReference.cache

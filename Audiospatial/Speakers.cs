@@ -19,7 +19,7 @@ namespace Audiospatial
         public string sound_time = "00";
 
         //                                                  west  north  east
-        public static string[] available_speakers = new string[3] { "02", "03", "01" };
+        public static string[] available_speakers = new string[3] { "01", "03", "04" };
         public Speakers()
         {
             comFile = Main.resourcesPath + "\\com.txt";
