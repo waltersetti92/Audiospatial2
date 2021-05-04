@@ -11,6 +11,7 @@ namespace Audiospatial
 
     public class Speakers : IDisposable
     {
+
         private SerialPort sp;
         private string com = "";
         public readonly string comFile;
