@@ -96,6 +96,7 @@
     <Compile Include="AnswerUC.Designer.cs">
       <DependentUpon>AnswerUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business_Logic.cs" />
     <Compile Include="debugInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -178,6 +179,7 @@
     <Compile Include="ucSpeaker.Designer.cs">
       <DependentUpon>ucSpeaker.cs</DependentUpon>
     </Compile>
+    <Compile Include="uda_server_communication.cs" />
     <EmbeddedResource Include="ActivityUdaUC.resx">
       <DependentUpon>ActivityUdaUC.cs</DependentUpon>
     </EmbeddedResource>

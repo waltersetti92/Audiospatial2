@@ -39,14 +39,21 @@ namespace Audiospatial
         public int ripetiz = 0;
         ResumeFromMessage message_callback = null;
         public Speakers speakers = null;
+        public string activity_form;
+        public string idle_status;
+        public string started_uda;
+        public string data_start;
         public Main()
         {
+            idle_status = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=0";
+            started_uda = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=7" + "&data=" + data_start;
+            Business_Logic BL = new Business_Logic(this);
             onactivity = 1;
             messaggio = 1;
             scenario = 1;
             participants = 0;
             speakers = new Speakers();
-            InitializeComponent();                       
+            InitializeComponent();
             initial1.parentForm = this;
             activityUdaUC1.parentForm = this;
             primo_Scenario1.parentForm = this;
@@ -94,7 +101,46 @@ namespace Audiospatial
                 return (Activities)serializer.Deserialize(file, typeof(Activities));
             }
         }
+        public string Status_Changed(string k)
+        {
+            this.BeginInvoke((Action)delegate ()
+            {
+                int status = int.Parse(k);
+                if (status == 6)
+                {
+                    initial1.Visible = false;
+                    onStartActivity(2, 0, 6, "1");
+                }
+                if (status == 8)
+                {
+                }
+                if (status == 9)
+                {
 
+
+                }
+                if (status == 11 || status == 12)
+                {
+
+                    Application.Exit();
+                    Environment.Exit(0);
+
+                }
+                if (status == 15)
+                {
+
+                }
+
+            });
+            return k;
+        }
+
+
+        public async void Abort_UDA()
+        {
+            await uda_server_communication.Server_Request(idle_status);
+            Application.Restart();
+        }
         public void piu_partecipanti()
 
         {
@@ -138,7 +184,7 @@ namespace Audiospatial
                 quarto_Scenario1.Show();
                 currUC1 = quarto_Scenario1;
             }
-            else if (onactivity ==5)
+            else if (onactivity == 5)
             {
                 quinto_Scenario1.Show();
                 currUC1 = quinto_Scenario1;
@@ -150,13 +196,18 @@ namespace Audiospatial
             }
 
         }
-
-        public void onStart()
+        public void onStart1(string k)
         {
             initial1.Visible = false;
             activityUdaUC1.Visible = true;
             currUC = activityUdaUC1;
         }
+        //public void onStart()
+        //{
+        //    initial1.Visible = false;
+        //    activityUdaUC1.Visible = true;
+        //    currUC = activityUdaUC1;
+        //}
         private void Main_Load(object sender, EventArgs e)
         {
             Size size = this.Size; //commit
@@ -170,22 +221,22 @@ namespace Audiospatial
             terzo_Scenario1.setPos(size.Width, size.Height);
             quarto_Scenario1.setPos(size.Width, size.Height);
             quinto_Scenario1.setPos(size.Width, size.Height);
-           sesto_Scenario1.setPos(size.Width, size.Height);
+            sesto_Scenario1.setPos(size.Width, size.Height);
             finale_Scenario1.setPos(size.Width, size.Height);
         }
         public void onStartActivity(int level, int type, int num_participants, string group)
         {
-            if (onactivity==1)
+            if (onactivity == 1)
             {
                 activityUdaUC1.Visible = false;
-               BackgroundImageLayout = ImageLayout.Stretch;
+                BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_stanza);
                 speakers.sound_speaker = "13 09 ";
                 speakers.sound_time = " 09 ";
-                speakers.reinitSpeakers();                
+                speakers.reinitSpeakers();
                 primo_Scenario1.Visible = true;
             }
-           else if (onactivity == 2)
+            else if (onactivity == 2)
             {
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
@@ -239,8 +290,8 @@ namespace Audiospatial
             iDifficulty = level;
             participants = num_participants;
 
-           if (Main.IS_DEBUG == true) debugInfo1.Visible = true;
-           else debugInfo1.Visible = false;
+            if (Main.IS_DEBUG == true) debugInfo1.Visible = true;
+            else debugInfo1.Visible = false;
 
             currUC = activity_Stanza1;
             onactivity++;
@@ -253,8 +304,8 @@ namespace Audiospatial
             {
                 primo_Scenario1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
-                BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_stanza);         
-               
+                BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_stanza);
+
             }
             else if (onactivity == 3)
             {
@@ -294,7 +345,6 @@ namespace Audiospatial
             answerUC1.Visible = false;
             if (activity.isCorrect(Int32.Parse(result))) playbackResourceAudio("success");
             else playbackResourceAudio("failure");
-
             Thread.Sleep(2000);
             activity.nextOperand();
             currUC = activity_Stanza1;
@@ -304,7 +354,7 @@ namespace Audiospatial
             currUC.Visible = false;
             if (onactivity == 2)
             {
-                messageUC1.setMessage("Complimenti !!! Avete svegliato Hinrik! Ora corriamo all'aeroporto!", "continua");                
+                messageUC1.setMessage("Complimenti !!! Avete svegliato Hinrik! Ora corriamo all'aeroporto!", "continua");
             }
             else if (onactivity == 3)
             {
@@ -325,10 +375,10 @@ namespace Audiospatial
             else if (onactivity == 7)
             {
                 messageUC1.setMessage("Complimenti !!! Hai recuperato il reperto!", "continua");
-               // this.Visible = false;
-             //   finale_Scenario1.Visible=true;
-              //  currUC = finale_Scenario1;
-              
+                // this.Visible = false;
+                //   finale_Scenario1.Visible=true;
+                //  currUC = finale_Scenario1;
+
             }
             message_callback = scenes;
         }
@@ -385,7 +435,7 @@ namespace Audiospatial
 
         private void btTestSpeakers_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void finale_Scenario1_Load(object sender, EventArgs e)
