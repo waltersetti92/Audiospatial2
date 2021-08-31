@@ -77,7 +77,11 @@ namespace Audiospatial
         {
             parentForm.playbackResourceAudio("Alarm_sound");
         }
-
+        public void counter()
+        {
+            timer1.Enabled = true;
+            timer1.Start();
+        }
         private async void timer1_Tick(object sender, EventArgs e)
         {
             if (timeleft > 0)
@@ -143,6 +147,11 @@ namespace Audiospatial
                 }
 
             }
+        }
+
+        private void timerlabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -235,6 +235,7 @@ namespace Audiospatial
                 speakers.sound_time = " 09 ";
                 speakers.reinitSpeakers();
                 primo_Scenario1.Visible = true;
+                primo_Scenario1.counter();
             }
             else if (onactivity == 2)
             {
