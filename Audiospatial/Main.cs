@@ -202,12 +202,7 @@ namespace Audiospatial
             activityUdaUC1.Visible = true;
             currUC = activityUdaUC1;
         }
-        //public void onStart()
-        //{
-        //    initial1.Visible = false;
-        //    activityUdaUC1.Visible = true;
-        //    currUC = activityUdaUC1;
-        //}
+
         private void Main_Load(object sender, EventArgs e)
         {
             Size size = this.Size; //commit
@@ -376,9 +371,6 @@ namespace Audiospatial
             else if (onactivity == 7)
             {
                 messageUC1.setMessage("Complimenti !!! Hai recuperato il reperto!", "continua");
-                // this.Visible = false;
-                //   finale_Scenario1.Visible=true;
-                //  currUC = finale_Scenario1;
 
             }
             message_callback = scenes;
@@ -410,6 +402,7 @@ namespace Audiospatial
             answerUC1.show(iDifficulty);
             answerUC1.Visible = true;
             currUC = answerUC1;
+            answerUC1.counter();
         }
         public void playbackResourceAudio(string audioname)
         {
@@ -448,6 +441,11 @@ namespace Audiospatial
         {
             this.Visible = false;
             ucSpeaker1.Visible = true;
+        }
+
+        private void terzo_Scenario1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

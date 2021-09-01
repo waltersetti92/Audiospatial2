@@ -75,7 +75,7 @@ namespace Audiospatial
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            parentForm.playbackResourceAudio("Alarm_sound");
+            //parentForm.playbackResourceAudio("Alarm_sound");
         }
         public void counter()
         {
