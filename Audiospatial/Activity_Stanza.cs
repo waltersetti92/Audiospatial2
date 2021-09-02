@@ -27,6 +27,7 @@ namespace Audiospatial
 
         private string currStartingNumber = "";
         private string currResult = "";
+        public string k;
         public Activity_Stanza()
         {
             InitializeComponent();
@@ -59,7 +60,7 @@ namespace Audiospatial
             foreach (int op in currActivity.operations)
             {
                 currOperationsLabels.Add(operations_labels[op]);
-                currOperationsTexts.Add(operations_texts[op]);
+                currOperationsTexts.Add(operations_texts[op]); 
             }
             resetOperations();
             if (type == ActivityMathSpatialAudio.N_TYPE_SPATIAL) setOperationsIcons(currOperationsTexts.ToArray());
@@ -117,13 +118,36 @@ namespace Audiospatial
         }
         public void setCountDown(int n)
         {
-            string strnum = representNumber(n);
-            labTimeCounter.Visible = (strnum.Length > 0);
+            while (true)
+            {
+                k = parentForm.Status_Changed(parentForm.activity_form);
+                int status = int.Parse(k);
+                if (status != 9 && status != 8)
+                {
+                    if (status == 11 || status == 12)
+                    {
+                        Application.Exit();
+                        Environment.Exit(0);
+                    }
+                    if (status == 13)
+                    {
+                        parentForm.Abort_UDA();
+                        break;
+                    }
+                    if (status == 7 || status == 10 )//|| status == 15)
+                    {
+                        string strnum = representNumber(n);
+                        labTimeCounter.Visible = (strnum.Length > 0);
 
-            strnum = fillBlanks(4, strnum);
+                        strnum = fillBlanks(4, strnum);
 
-            labTimeCounter.Text = strnum;
-            labTimeCounter.Invalidate();
+                        labTimeCounter.Text = strnum;
+                        labTimeCounter.Invalidate();
+                    }
+                    break;
+                }
+            }
+
 
         }
 

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace Audiospatial
 {
+
     class ActivityMathSpatialAudio
     {
         private readonly Main form;
@@ -24,6 +25,7 @@ namespace Audiospatial
         private int iType = 0;
         private int iParticipants = 5;
         private string group = "";
+        private string k;
 
         private ActivityResult results;
 
@@ -66,6 +68,7 @@ namespace Audiospatial
         private int currSound = 0;    // num of sound reproduced [1->currOperand]
 
         private int elapsedTime = 0;
+     
         public ActivityMathSpatialAudio(Activities activities, Main form, Speakers speakers, Activity_Stanza activity, debugInfo debug)
         {
             this.available_activities = activities;
@@ -220,14 +223,17 @@ namespace Audiospatial
         // start countdown timer
         private void StartTimer(int rate, int duration)
         {
-            aTimer = new System.Windows.Forms.Timer();
-            aTimer.Tick += new EventHandler(TimerEventProcessor);
 
-            aTimer.Interval = rate * timer_interval;
-            aTimer.Tag = TAG_TIMER;
-            aTimer.Start();
-            elapsedTime = 0;
-            activity.setCountDown((duration-elapsedTime)); //duration-elapsedTime
+                        aTimer = new System.Windows.Forms.Timer();
+                        aTimer.Tick += new EventHandler(TimerEventProcessor);
+
+                        aTimer.Interval = rate * timer_interval;
+                        aTimer.Tag = TAG_TIMER;
+                        aTimer.Start();
+                        elapsedTime = 0;
+                        activity.setCountDown((duration - elapsedTime)); //duration-elapsedTime
+
+           
         }
 
         // callback of every timer

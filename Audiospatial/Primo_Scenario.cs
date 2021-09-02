@@ -81,6 +81,7 @@ namespace Audiospatial
         {
             timer1.Enabled = true;
             timer1.Start();
+
         }
         private async void timer1_Tick(object sender, EventArgs e)
         {
@@ -135,12 +136,12 @@ namespace Audiospatial
                         }
                         if (status == 10)
                         {
-                            await uda_server_communication.Server_Request(put_wait_data);
+                            await uda_server_communication.Server_Request(put_started);
                         }
                         this.timer1.Stop();
                         timerlabel.Enabled = false;
                         timerlabel.Visible = false;
-                        await uda_server_communication.Server_Request(put_wait_data);
+                        await uda_server_communication.Server_Request(put_started);
                         parentForm.closeMessage();
                     }
                     break;

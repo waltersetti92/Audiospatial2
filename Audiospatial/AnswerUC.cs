@@ -79,11 +79,15 @@ namespace Audiospatial
         }
         public void counter()
         {
+            timerlabel.Visible = true;
+            timerlabel.Text = "10";
+            timeleft = 10;
             timer1.Enabled = true;
             timer1.Start();
         }
         private async void timer1_Tick(object sender, EventArgs e)
         {
+
             if (timeleft > 0)
             {
                 while (true)
@@ -116,9 +120,12 @@ namespace Audiospatial
                             if (status == 15)
                             {
                                 string data = await uda_server_communication.Server_Request_datasent(get_status_uda);
-                                parentForm.onAnswer(data);
+                                timerlabel.Visible = false;
                                 timer1.Stop();
                                 timerlabel.Visible = false;
+                                timer1.Enabled = false;
+                                await uda_server_communication.Server_Request(put_started);
+                                parentForm.onAnswer(data);                              
                             }
                             break;
                         }
@@ -129,9 +136,12 @@ namespace Audiospatial
             }
             if (timeleft == 0)
             {
-                string data1 = "-3";
-                parentForm.onAnswer(data1);              
-                Thread.Sleep(2000);
+                string data1 = "900";
+                timerlabel.Visible = false;
+                parentForm.onAnswer(data1);
+                timer1.Enabled = false;
+                await uda_server_communication.Server_Request(put_started);                
+                //Thread.Sleep(2000);               
             }
         }
     }
