@@ -109,7 +109,7 @@ namespace Audiospatial
                 if (status == 6)
                 {
                     initial1.Visible = false;
-                    onStartActivity(2, 0, 6, "1");
+                    onStartActivity(2, 0, 1, "1");
                 }
                 if (status == 8)
                 {
@@ -350,6 +350,7 @@ namespace Audiospatial
             currUC.Visible = false;
             if (onactivity == 2)
             {
+               
                 messageUC1.setMessage("Complimenti !!! Avete svegliato Hinrik! Ora corriamo all'aeroporto!", "continua");
             }
             else if (onactivity == 3)

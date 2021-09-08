@@ -15,7 +15,7 @@ namespace Audiospatial
     {
         public Main parentForm { get; set; }
         private int iDifficulty = 0;
-        public int timeleft = 10;
+        public int timeleft = 2;
         public string k;
         public string put_wait_data;
         public string put_started;
@@ -81,7 +81,7 @@ namespace Audiospatial
         {
             timerlabel.Visible = true;
             timerlabel.Text = "10";
-            timeleft = 10;
+            timeleft = 2;
             timer1.Enabled = true;
             timer1.Start();
         }
