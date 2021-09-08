@@ -350,8 +350,13 @@ namespace Audiospatial
             currUC.Visible = false;
             if (onactivity == 2)
             {
-               
-                messageUC1.setMessage("Complimenti !!! Avete svegliato Hinrik! Ora corriamo all'aeroporto!", "continua");
+                if (ripetiz == 0)
+                {
+                    messaggio = 2;
+                    onStartActivity(iDifficulty, 0, participants, "1");
+                }
+                
+               // messageUC1.setMessage("Complimenti !!! Avete svegliato Hinrik! Ora corriamo all'aeroporto!", "continua");
             }
             else if (onactivity == 3)
             {
