@@ -134,14 +134,13 @@ namespace Audiospatial
                         parentForm.Abort_UDA();
                         break;
                     }
-                    if (status == 7 || status == 10 )//|| status == 15)
+                    if (status == 7 || status == 10 )
                     {
                         string strnum = representNumber(n);
                         labTimeCounter.Visible = (strnum.Length > 0);
-
                         strnum = fillBlanks(4, strnum);
-
                         labTimeCounter.Text = strnum;
+                        this.Update();
                         labTimeCounter.Invalidate();
                     }
                     break;

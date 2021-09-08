@@ -115,6 +115,7 @@ namespace Audiospatial
                         Thread.Sleep(1000);
                         timeleft = timeleft - 1;
                         timerlabel.Text = timeleft.ToString();
+                        this.Update();
                         while (true)
                         {
                             if (status == 15)
@@ -140,6 +141,7 @@ namespace Audiospatial
                 timerlabel.Visible = false;
                 parentForm.onAnswer(data1);
                 timer1.Enabled = false;
+                Thread.Sleep(1000);
                 await uda_server_communication.Server_Request(put_started);                
                 //Thread.Sleep(2000);               
             }
