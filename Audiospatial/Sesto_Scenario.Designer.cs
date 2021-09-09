@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labPrimoScenario = new System.Windows.Forms.Label();
             this.Alarm = new System.Windows.Forms.PictureBox();
             this.labIndicazioni1 = new System.Windows.Forms.Label();
@@ -36,7 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Start = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerlabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Alarm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +59,7 @@
             this.Alarm.BackColor = System.Drawing.Color.Transparent;
             this.Alarm.ErrorImage = null;
             this.Alarm.Image = global::Audiospatial.Properties.Resources.Dreamcatcher;
-            this.Alarm.Location = new System.Drawing.Point(1000, 18);
+            this.Alarm.Location = new System.Drawing.Point(1014, 96);
             this.Alarm.Name = "Alarm";
             this.Alarm.Size = new System.Drawing.Size(176, 121);
             this.Alarm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -137,25 +139,28 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "IN BOCCA AL LUPO!";
             // 
-            // Start
+            // timer1
             // 
-            this.Start.AutoSize = true;
-            this.Start.BackColor = System.Drawing.Color.Transparent;
-            this.Start.Font = new System.Drawing.Font("Snap ITC", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Start.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.Start.Location = new System.Drawing.Point(980, 160);
-            this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(236, 57);
-            this.Start.TabIndex = 16;
-            this.Start.Text = "INIZIA!";
-            this.Start.Click += new System.EventHandler(this.Start_Click);
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timerlabel
+            // 
+            this.timerlabel.AutoSize = true;
+            this.timerlabel.BackColor = System.Drawing.Color.Transparent;
+            this.timerlabel.Font = new System.Drawing.Font("Snap ITC", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerlabel.ForeColor = System.Drawing.Color.Black;
+            this.timerlabel.Location = new System.Drawing.Point(378, 456);
+            this.timerlabel.Name = "timerlabel";
+            this.timerlabel.Size = new System.Drawing.Size(126, 86);
+            this.timerlabel.TabIndex = 16;
+            this.timerlabel.Text = "10";
             // 
             // Sesto_Scenario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Audiospatial.Properties.Resources.temple;
-            this.Controls.Add(this.Start);
+            this.Controls.Add(this.timerlabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -184,6 +189,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label Start;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label timerlabel;
     }
 }

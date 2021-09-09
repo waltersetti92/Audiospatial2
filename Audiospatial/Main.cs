@@ -252,6 +252,7 @@ namespace Audiospatial
                 speakers.sound_time = " 09 ";
                 speakers.reinitSpeakers();
                 terzo_Scenario1.Visible = true;
+                terzo_Scenario1.counter();
             }
             else if (onactivity == 4)
             {
@@ -262,6 +263,7 @@ namespace Audiospatial
                 speakers.sound_time = " 10 ";
                 speakers.reinitSpeakers();
                 quarto_Scenario1.Visible = true;
+                quarto_Scenario1.counter();
             }
             else if (onactivity == 5)
             {
@@ -272,6 +274,7 @@ namespace Audiospatial
                 speakers.sound_time = " 0A ";
                 speakers.reinitSpeakers();
                 quinto_Scenario1.Visible = true;
+                quinto_Scenario1.counter();
             }
             else if (onactivity == 6)
             {
@@ -282,6 +285,7 @@ namespace Audiospatial
                 speakers.sound_time = " 0A ";
                 speakers.reinitSpeakers();
                 sesto_Scenario1.Visible = true;
+                sesto_Scenario1.counter();
             }
 
             iDifficulty = level;

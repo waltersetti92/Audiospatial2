@@ -34,6 +34,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labIndicazioni1
@@ -102,17 +105,41 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Snap ITC", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Indigo;
-            this.label5.Location = new System.Drawing.Point(288, 596);
+            this.label5.Location = new System.Drawing.Point(255, 521);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(712, 51);
             this.label5.TabIndex = 21;
             this.label5.Text = "OTTIMO LAVORO DAVVERO!";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Snap ITC", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Gold;
+            this.label6.Location = new System.Drawing.Point(20, 651);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(444, 51);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "ECCO L\'INDIZIO!";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Audiospatial.Properties.Resources.alarm;
+            this.pictureBox1.Location = new System.Drawing.Point(548, 621);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(138, 104);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
             // 
             // Finale_Scenario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Audiospatial.Properties.Resources.wakeup;
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -122,6 +149,7 @@
             this.Name = "Finale_Scenario";
             this.Size = new System.Drawing.Size(873, 792);
             this.Load += new System.EventHandler(this.Finale_Scenario_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +163,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
