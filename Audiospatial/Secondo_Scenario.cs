@@ -14,7 +14,7 @@ namespace Audiospatial
     public partial class Secondo_Scenario : UserControl
     {
         public Main parentForm { get; set; }
-        public int timeleft = 2;
+        public int timeleft = 10;
         public int timer_game = 0;
         private int total_seconds;
         public int seconds = 0;
@@ -145,6 +145,11 @@ namespace Audiospatial
         private void label4_Click(object sender, EventArgs e)
         {
             parentForm.closeMessage();
+        }
+
+        private void timerlabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

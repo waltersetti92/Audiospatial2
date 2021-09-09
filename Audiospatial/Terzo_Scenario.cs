@@ -14,7 +14,7 @@ namespace Audiospatial
     public partial class Terzo_Scenario : UserControl
     {
         public Main parentForm { get; set; }
-        public int timeleft = 2;
+        public int timeleft = 10;
         public int timer_game = 0;
         private int total_seconds;
         public int seconds = 0;

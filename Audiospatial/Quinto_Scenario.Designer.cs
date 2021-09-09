@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Alarm = new System.Windows.Forms.PictureBox();
-            this.Start = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerlabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Alarm)).BeginInit();
@@ -128,19 +127,6 @@
             this.Alarm.TabStop = false;
             this.Alarm.Click += new System.EventHandler(this.Alarm_Click);
             // 
-            // Start
-            // 
-            this.Start.AutoSize = true;
-            this.Start.BackColor = System.Drawing.Color.Transparent;
-            this.Start.Font = new System.Drawing.Font("Snap ITC", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Start.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.Start.Location = new System.Drawing.Point(633, 610);
-            this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(236, 57);
-            this.Start.TabIndex = 9;
-            this.Start.Text = "INIZIA!";
-            this.Start.Click += new System.EventHandler(this.Start_Click);
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -151,7 +137,7 @@
             this.timerlabel.BackColor = System.Drawing.Color.Transparent;
             this.timerlabel.Font = new System.Drawing.Font("Snap ITC", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerlabel.ForeColor = System.Drawing.Color.Black;
-            this.timerlabel.Location = new System.Drawing.Point(403, 398);
+            this.timerlabel.Location = new System.Drawing.Point(546, 470);
             this.timerlabel.Name = "timerlabel";
             this.timerlabel.Size = new System.Drawing.Size(126, 86);
             this.timerlabel.TabIndex = 15;
@@ -163,7 +149,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Audiospatial.Properties.Resources.lion;
             this.Controls.Add(this.timerlabel);
-            this.Controls.Add(this.Start);
             this.Controls.Add(this.Alarm);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -189,7 +174,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox Alarm;
-        private System.Windows.Forms.Label Start;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label timerlabel;
     }

@@ -15,7 +15,7 @@ namespace Audiospatial
     {
         public Main parentForm { get; set; }
         public Speakers speakers = null;
-        public int timeleft = 2;
+        public int timeleft = 10;
         public int timer_game = 0;
         private int total_seconds;
         public int seconds = 0;

@@ -137,7 +137,7 @@
             this.timerlabel.BackColor = System.Drawing.Color.Transparent;
             this.timerlabel.Font = new System.Drawing.Font("Snap ITC", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerlabel.ForeColor = System.Drawing.Color.Black;
-            this.timerlabel.Location = new System.Drawing.Point(531, 506);
+            this.timerlabel.Location = new System.Drawing.Point(499, 451);
             this.timerlabel.Name = "timerlabel";
             this.timerlabel.Size = new System.Drawing.Size(126, 86);
             this.timerlabel.TabIndex = 11;
