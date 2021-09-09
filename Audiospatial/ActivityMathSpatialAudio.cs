@@ -104,7 +104,42 @@ namespace Audiospatial
             if (currParticipant == iParticipants)
             {
                 form.ripetiz = 0;
-                form.onEndActivities();     // LUDA FINISHED !!!!
+                if(form.onactivity == 2 && form.ripetiz == 0)
+                {
+                    form.messaggio = 2;
+                    form.onStartActivity(form.iDifficulty, 0, form.participants, "1");
+                }
+               else if (form.onactivity == 3 && form.ripetiz == 0)
+                {
+                    form.messaggio = 3;
+                    form.onStartActivity(form.iDifficulty, 0, form.participants, "1");
+                }
+                else if (form.onactivity == 4 && form.ripetiz == 0)
+                {
+                    form.messaggio = 4; // Questo per il messaggio da mandare in show message  
+                    form.onStartActivity(form.iDifficulty, 0, form.participants, "1");
+                }
+                else if (form.onactivity == 5 && form.ripetiz == 0)
+                {
+                    form.messaggio = 5; // Questo per il messaggio da mandare in show message 
+                    form.onStartActivity(form.iDifficulty, 0, form.participants, "1");
+                }
+                else if (form.onactivity == 6 && form.ripetiz == 0)
+                {
+                    form.messaggio = 6; // Questo per il messaggio da mandare in show message  
+                    form.onStartActivity(form.iDifficulty, 0, form.participants, "1");
+                }
+                else if (form.onactivity == 7 && form.ripetiz == 0)
+                {
+                    form.messaggio = 7; // Questo per il messaggio da mandare in show message  
+                    form.finale();
+
+                }
+                if (form.ripetiz == 1)
+                {
+                    form.closeMessage1();
+                }
+                //  form.onEndActivities();     // LUDA FINISHED !!!!
                 return;
             }
 

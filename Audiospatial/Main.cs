@@ -234,13 +234,14 @@ namespace Audiospatial
             }
             else if (onactivity == 2)
             {
-                messageUC1.Visible = false;
+                activity_Stanza1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_trafficjam);
                 speakers.sound_speaker = "0A 03 ";
                 speakers.sound_time = " 03 ";
                 speakers.reinitSpeakers();
                 secondo_Scenario1.Visible = true;
+                secondo_Scenario1.counter();
             }
             else if (onactivity == 3)
             {
@@ -305,9 +306,10 @@ namespace Audiospatial
             }
             else if (onactivity == 3)
             {
+                secondo_Scenario1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_trafficjam);
-                secondo_Scenario1.Visible = false;
+              
             }
             else if (onactivity == 4)
             {
@@ -350,33 +352,40 @@ namespace Audiospatial
             currUC.Visible = false;
             if (onactivity == 2)
             {
-                if (ripetiz == 0)
-                {
-                    messaggio = 2;
-                    onStartActivity(iDifficulty, 0, participants, "1");
-                }
-                
+
+                   //messaggio = 2;
+                   //onStartActivity(iDifficulty, 0, participants, "1");
+
                // messageUC1.setMessage("Complimenti !!! Avete svegliato Hinrik! Ora corriamo all'aeroporto!", "continua");
             }
-            else if (onactivity == 3)
+            if (onactivity == 3)
             {
-                messageUC1.setMessage("Complimenti !!! Siete arrivati all'aeroporto! Saliamo sull'aereo e partiamo!", "continua");
+
+                    //messaggio = 3;
+                    //onStartActivity(iDifficulty, 0, participants, "1");
+
+
+                //messageUC1.setMessage("Complimenti !!! Siete arrivati all'aeroporto! Saliamo sull'aereo e partiamo!", "continua");
             }
             else if (onactivity == 4)
             {
-                messageUC1.setMessage("Complimenti !!! Il viaggio è andato a buon fine!", "continua");
+                
+               // messageUC1.setMessage("Complimenti !!! Il viaggio è andato a buon fine!", "continua");
             }
             else if (onactivity == 5)
             {
-                messageUC1.setMessage("Complimenti !!! La popolazione ti ha suggerito dove trovare il tesoro!", "continua");
+               
+                //messageUC1.setMessage("Complimenti !!! La popolazione ti ha suggerito dove trovare il tesoro!", "continua");
             }
             else if (onactivity == 6)
             {
-                messageUC1.setMessage("Complimenti !!! Hai superato l'ostacolo del leone! Recupera il tesoro", "continua");
+               
+                //messageUC1.setMessage("Complimenti !!! Hai superato l'ostacolo del leone! Recupera il tesoro", "continua");
             }
             else if (onactivity == 7)
             {
-                messageUC1.setMessage("Complimenti !!! Hai recuperato il reperto!", "continua");
+               
+                //messageUC1.setMessage("Complimenti !!! Hai recuperato il reperto!", "continua");
 
             }
             message_callback = scenes;

@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labPrimoScenario = new System.Windows.Forms.Label();
             this.labIndicazioni1 = new System.Windows.Forms.Label();
             this.labIstruzioni2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Alarm = new System.Windows.Forms.PictureBox();
-            this.Start = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerlabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Alarm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,19 +114,6 @@
             this.Alarm.TabStop = false;
             this.Alarm.Click += new System.EventHandler(this.Alarm_Click);
             // 
-            // Start
-            // 
-            this.Start.AutoSize = true;
-            this.Start.BackColor = System.Drawing.Color.Transparent;
-            this.Start.Font = new System.Drawing.Font("Snap ITC", 33F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Start.ForeColor = System.Drawing.Color.ForestGreen;
-            this.Start.Location = new System.Drawing.Point(633, 610);
-            this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(236, 57);
-            this.Start.TabIndex = 10;
-            this.Start.Text = "INIZIA!";
-            this.Start.Click += new System.EventHandler(this.Start_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -137,13 +126,29 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "LE OPERAZIONI RELATIVE ALLE CASSE COMPARIRANNO SULLO SCHERMO";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timerlabel
+            // 
+            this.timerlabel.AutoSize = true;
+            this.timerlabel.BackColor = System.Drawing.Color.Transparent;
+            this.timerlabel.Font = new System.Drawing.Font("Snap ITC", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerlabel.ForeColor = System.Drawing.Color.Black;
+            this.timerlabel.Location = new System.Drawing.Point(416, 567);
+            this.timerlabel.Name = "timerlabel";
+            this.timerlabel.Size = new System.Drawing.Size(126, 86);
+            this.timerlabel.TabIndex = 13;
+            this.timerlabel.Text = "10";
+            // 
             // Terzo_Scenario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Audiospatial.Properties.Resources.plan;
+            this.Controls.Add(this.timerlabel);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.Start);
             this.Controls.Add(this.Alarm);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -167,7 +172,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox Alarm;
-        private System.Windows.Forms.Label Start;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label timerlabel;
     }
 }
