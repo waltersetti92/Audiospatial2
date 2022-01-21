@@ -20,7 +20,7 @@ namespace Audiospatial
         public string sound_time = "00";
 
         //                                                  west  north  east
-        public static string[] available_speakers = new string[3] { "01", "03", "04" };
+        public static string[] available_speakers = new string[3] { "02", "03", "04" };
         public Speakers()
         {
             comFile = Main.resourcesPath + "\\com.txt";
@@ -35,20 +35,6 @@ namespace Audiospatial
                     if (openPort(com) != null)
                         isOpened = true;
 
-        }
-
-
-
-        static public string[] getAvailableComs()
-        {
-            return SerialPort.GetPortNames();
-
-        }
-
-        private string getSavedCom()
-        {
-            if (File.Exists(comFile) is true) return File.ReadAllText(comFile);
-            else return "";
         }
         public Speakers openPort(string c)
         {
@@ -68,6 +54,20 @@ namespace Audiospatial
                 return null;
             }
         }
+
+
+        static public string[] getAvailableComs()
+        {
+            return SerialPort.GetPortNames();
+
+        }
+
+        private string getSavedCom()
+        {
+            if (File.Exists(comFile) is true) return File.ReadAllText(comFile);
+            else return "";
+        }
+       
         public static string ByteArrayToString(byte[] ba)
         {
             StringBuilder hex = new StringBuilder(ba.Length * 2);
@@ -89,11 +89,20 @@ namespace Audiospatial
             }
             return arr; //return str.Split(' ').Select(s => Convert.ToByte(s, 16)).ToArray();
         }
+        public void refreshPort()
+        {
+            if (sp.IsOpen)
+            {
+                sp.Close();
+                Thread.Sleep(1000);
+                sp.Open();
+            }
+        }
         public bool reinitSpeakers(bool test = true)
         {
-            // if (sp.IsOpen is false)
-            //return false;
-            return true;
+            if (sp.IsOpen is false)
+            return false;
+            //return true;
 
 
             string str;
@@ -114,6 +123,7 @@ namespace Audiospatial
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
+
                 str = "F5 02 " + speaker + " 21 " + sound_speaker + "03 F0";
                 bytes = hexstr2ByteArray(str);
                 sp.Write(bytes, 0, bytes.Length);
@@ -131,7 +141,14 @@ namespace Audiospatial
 
 
             }
-
+            if (test)
+            {
+                foreach (string speaker in available_speakers)
+                {
+                    //startSpeaker(speaker);
+                    //Thread.Sleep(2000);
+                }
+            }
             return true;
         }
 
@@ -148,7 +165,7 @@ namespace Audiospatial
 
             bytes = hexstr2ByteArray(str);
             sp.Write(bytes, 0, bytes.Length);
-
+            Thread.Sleep(2300);
             return true;
         }
         ~Speakers()

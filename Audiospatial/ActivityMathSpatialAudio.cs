@@ -29,7 +29,7 @@ namespace Audiospatial
 
         private ActivityResult results;
 
-        private static readonly string[] speaker_labels = new string[] { "01", "03", "04" };     // west, north, east
+        private static readonly string[] speaker_labels = new string[] { "02", "03", "04" };     // west, north, east
 
         private static readonly string[] operations_symbols = new string[] { "dog", "cat", "lion", "chewbacca" };
         private static readonly string[] operations_labels = new string[] { "+", "-", "x", "/" };
