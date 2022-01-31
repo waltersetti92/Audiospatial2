@@ -19,8 +19,8 @@ namespace Audiospatial
         public string sound_speaker = " ";
         public string sound_time = "00";
 
-        //                                                  west  north  east
-        public static string[] available_speakers = new string[3] { "02", "03", "04" };
+        //                                                           west  north  east
+        public static string[] available_speakers = new string[3] { "01", "02", "04" };
         public Speakers()
         {
             comFile = Main.resourcesPath + "\\com.txt";
@@ -158,16 +158,30 @@ namespace Audiospatial
                 return false;
             if (sp.IsOpen is false)
                 return false;
-
-            string str;
+            string str,arr1,indata;
+            int length_response;
             byte[] bytes;
-            str = "F5 02 " + speaker + " 20 01 02 03 F0";
-
+            int dataLength = 0;
+            str = "F5 02 " + speaker + " 21 " + sound_speaker + "03 F0";
             bytes = hexstr2ByteArray(str);
-            sp.Write(bytes, 0, bytes.Length);
-            Thread.Sleep(2300);
+            arr1 = "";
+            indata = "";
+            while (dataLength==0)
+            {
+                sp.Write(bytes, 0, bytes.Length);
+                Thread.Sleep(1000);
+                indata = sp.ReadExisting();
+                length_response = indata.Length;
+                if (length_response > 20)
+                {
+                    arr1 = char.ToString(indata[18]);
+                }
+               if(String.Equals(arr1,"1") || String.Equals(arr1, "2") || String.Equals(arr1, "4"))
+                break;               
+            }
             return true;
         }
+
         ~Speakers()
         {
             Dispose(false);

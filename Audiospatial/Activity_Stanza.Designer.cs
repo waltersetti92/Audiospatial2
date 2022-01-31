@@ -43,9 +43,10 @@
             this.labCenter.AutoSize = true;
             this.labCenter.BackColor = System.Drawing.Color.Transparent;
             this.labCenter.Font = new System.Drawing.Font("Comic Sans MS", 120F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labCenter.Location = new System.Drawing.Point(255, 299);
+            this.labCenter.Location = new System.Drawing.Point(382, 460);
+            this.labCenter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labCenter.Name = "labCenter";
-            this.labCenter.Size = new System.Drawing.Size(163, 223);
+            this.labCenter.Size = new System.Drawing.Size(244, 334);
             this.labCenter.TabIndex = 23;
             this.labCenter.Text = ".";
             this.labCenter.Visible = false;
@@ -56,9 +57,10 @@
             this.labTimeCounter.AutoSize = true;
             this.labTimeCounter.BackColor = System.Drawing.Color.Transparent;
             this.labTimeCounter.Font = new System.Drawing.Font("Comic Sans MS", 69.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labTimeCounter.Location = new System.Drawing.Point(544, -2);
+            this.labTimeCounter.Location = new System.Drawing.Point(963, -9);
+            this.labTimeCounter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labTimeCounter.Name = "labTimeCounter";
-            this.labTimeCounter.Size = new System.Drawing.Size(95, 130);
+            this.labTimeCounter.Size = new System.Drawing.Size(143, 195);
             this.labTimeCounter.TabIndex = 24;
             this.labTimeCounter.Text = ".";
             this.labTimeCounter.Visible = false;
@@ -66,9 +68,10 @@
             // pbEast
             // 
             this.pbEast.BackColor = System.Drawing.Color.Transparent;
-            this.pbEast.Location = new System.Drawing.Point(594, 155);
+            this.pbEast.Location = new System.Drawing.Point(681, 92);
+            this.pbEast.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbEast.Name = "pbEast";
-            this.pbEast.Size = new System.Drawing.Size(125, 125);
+            this.pbEast.Size = new System.Drawing.Size(188, 192);
             this.pbEast.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbEast.TabIndex = 22;
             this.pbEast.TabStop = false;
@@ -77,9 +80,10 @@
             // pbNorth
             // 
             this.pbNorth.BackColor = System.Drawing.Color.Transparent;
-            this.pbNorth.Location = new System.Drawing.Point(274, 3);
+            this.pbNorth.Location = new System.Drawing.Point(131, 538);
+            this.pbNorth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbNorth.Name = "pbNorth";
-            this.pbNorth.Size = new System.Drawing.Size(125, 125);
+            this.pbNorth.Size = new System.Drawing.Size(188, 192);
             this.pbNorth.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbNorth.TabIndex = 21;
             this.pbNorth.TabStop = false;
@@ -88,9 +92,10 @@
             // pbWest
             // 
             this.pbWest.BackColor = System.Drawing.Color.Transparent;
-            this.pbWest.Location = new System.Drawing.Point(3, 166);
+            this.pbWest.Location = new System.Drawing.Point(101, 92);
+            this.pbWest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbWest.Name = "pbWest";
-            this.pbWest.Size = new System.Drawing.Size(125, 125);
+            this.pbWest.Size = new System.Drawing.Size(188, 192);
             this.pbWest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbWest.TabIndex = 20;
             this.pbWest.TabStop = false;
@@ -98,7 +103,7 @@
             // 
             // Activity_Stanza
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.labTimeCounter);
@@ -106,8 +111,9 @@
             this.Controls.Add(this.pbEast);
             this.Controls.Add(this.pbNorth);
             this.Controls.Add(this.pbWest);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Activity_Stanza";
-            this.Size = new System.Drawing.Size(758, 522);
+            this.Size = new System.Drawing.Size(1137, 803);
             this.Load += new System.EventHandler(this.Activity_Stanza_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbEast)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNorth)).EndInit();

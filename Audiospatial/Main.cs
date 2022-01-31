@@ -3,8 +3,13 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Media;
 using System.IO;
+using System.IO.Pipes;
 using Newtonsoft.Json;
 using System.Threading;
+using System.Text;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+
 
 
 namespace Audiospatial
@@ -43,8 +48,10 @@ namespace Audiospatial
         public string idle_status;
         public string started_uda;
         public string data_start;
+        public static System.Diagnostics.Process proc;
         public Main()
         {
+            AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
             idle_status = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=0";
             started_uda = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=7" + "&data=" + data_start;
             Business_Logic BL = new Business_Logic(this);
@@ -101,6 +108,68 @@ namespace Audiospatial
                 return (Activities)serializer.Deserialize(file, typeof(Activities));
             }
         }
+        static void OnProcessExit(object sender, EventArgs e)
+        {
+            var Movie = new NamedPipeClientStream("mpv-pipe");
+            Movie.Connect();
+            StreamWriter writer = new StreamWriter(Movie);
+            writer.WriteLine("quit");
+        }
+        public void video_reproduction(string video1)
+        {
+            string video = "C:\\Users\\wsetti\\Documents\\Video_LUDA\\LUDA_Matematica_1.mov";
+            var Video = new NamedPipeClientStream("mpv-pipe");
+            Video.Connect();
+            StreamReader reader = new StreamReader(Video);
+            StreamWriter writer = new StreamWriter(Video);
+            writer.WriteLine("set pause yes");
+            writer.WriteLine($"loadfile {video}");
+            writer.WriteLine("set seek 0 absolute");
+            writer.WriteLine("set fullscreen yes");
+            writer.WriteLine("set ontop yes");
+            writer.WriteLine("set pause no");
+            writer.Flush();
+            Dictionary<string, object> getPos = new Dictionary<string, object>();
+            getPos.Add("command", new List<string> { "get_property", "percent-pos" });
+            getPos.Add("request_id", 88);
+
+
+            writer.WriteLine(JsonConvert.SerializeObject(getPos));
+            System.Diagnostics.Debug.WriteLine(JsonConvert.SerializeObject(getPos));
+            writer.Flush();
+            bool started = false;
+            bool wait_video = true;
+            while (wait_video)
+            {
+                writer.WriteLine(JsonConvert.SerializeObject(getPos));
+                System.Diagnostics.Debug.WriteLine(JsonConvert.SerializeObject(getPos));
+                writer.Flush();
+                string response = reader.ReadLine();
+                JObject json_parsed = JObject.Parse(response);
+
+                if (!started)
+                {
+                    var id = json_parsed["request_id"];
+                    if (id != null && (int)id == 88)
+                    {
+                        started = true;
+                    }
+                }
+                if (started)
+                {
+                    var id = json_parsed["request_id"];
+                    var error = json_parsed["error"];
+
+                    if (id != null && (int)id == 88 && error != null && (string)error == "property unavailable")
+                    {
+                        //     System.Diagnostics.Debug.WriteLine(response);
+                        wait_video = false;
+                        // and property not available
+                    }
+                }
+            }
+            System.Diagnostics.Debug.WriteLine(reader.ReadLine());
+        }
         public string Status_Changed(string k)
         {
             this.BeginInvoke((Action)delegate ()
@@ -109,6 +178,7 @@ namespace Audiospatial
                 if (status == 6)
                 {
                     initial1.Visible = false;
+                    video_reproduction("C:\\Users\\wsetti\\Documents\\Video_LUDA\\LUDA_Matematica_1.mov");
                     onStartActivity(2, 0, 1, "1");
                 }
                 if (status == 8)
@@ -205,6 +275,12 @@ namespace Audiospatial
 
         private void Main_Load(object sender, EventArgs e)
         {
+            string mpvcommand = "--idle --input-ipc-server=\\\\.\\pipe\\mpv-pipe";
+            proc = new System.Diagnostics.Process();
+            proc.StartInfo.FileName = "C:\\Users\\wsetti\\Documents\\Video_LUDA\\mpv";
+            proc.StartInfo.Arguments = mpvcommand;
+            proc.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            proc.Start();
             Size size = this.Size; //commit
             initial1.setPos(size.Width, size.Height);
             activityUdaUC1.setPos(size.Width, size.Height);
@@ -228,7 +304,7 @@ namespace Audiospatial
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_stanza);
                 speakers.sound_speaker = "13 09 ";
                 speakers.sound_time = " 09 ";
-                speakers.reinitSpeakers();
+                //speakers.reinitSpeakers();
                 primo_Scenario1.Visible = true;
                 primo_Scenario1.counter();
             }
@@ -239,7 +315,7 @@ namespace Audiospatial
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_trafficjam);
                 speakers.sound_speaker = "0A 03 ";
                 speakers.sound_time = " 03 ";
-                speakers.reinitSpeakers();
+                //speakers.reinitSpeakers();
                 secondo_Scenario1.Visible = true;
                 secondo_Scenario1.counter();
             }
@@ -250,7 +326,7 @@ namespace Audiospatial
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_plane);
                 speakers.sound_speaker = "12 09 ";
                 speakers.sound_time = " 09 ";
-                speakers.reinitSpeakers();
+                //speakers.reinitSpeakers();
                 terzo_Scenario1.Visible = true;
                 terzo_Scenario1.counter();
             }
@@ -261,7 +337,7 @@ namespace Audiospatial
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_tribal);
                 speakers.sound_speaker = "10 0E ";
                 speakers.sound_time = " 10 ";
-                speakers.reinitSpeakers();
+                //speakers.reinitSpeakers();
                 quarto_Scenario1.Visible = true;
                 quarto_Scenario1.counter();
             }
@@ -272,7 +348,7 @@ namespace Audiospatial
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_lion);
                 speakers.sound_speaker = "0E 09 ";
                 speakers.sound_time = " 0A ";
-                speakers.reinitSpeakers();
+               // speakers.reinitSpeakers();
                 quinto_Scenario1.Visible = true;
                 quinto_Scenario1.counter();
             }
@@ -283,7 +359,7 @@ namespace Audiospatial
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_maya);
                 speakers.sound_speaker = "07 0A ";
                 speakers.sound_time = " 0A ";
-                speakers.reinitSpeakers();
+                //speakers.reinitSpeakers();
                 sesto_Scenario1.Visible = true;
                 sesto_Scenario1.counter();
             }

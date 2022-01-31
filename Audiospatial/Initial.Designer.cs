@@ -37,20 +37,22 @@
             this.labLuda.BackColor = System.Drawing.Color.Transparent;
             this.labLuda.Font = new System.Drawing.Font("Snap ITC", 90F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labLuda.ForeColor = System.Drawing.Color.Green;
-            this.labLuda.Location = new System.Drawing.Point(35, 102);
-            this.labLuda.Margin = new System.Windows.Forms.Padding(3);
+            this.labLuda.Location = new System.Drawing.Point(67, 340);
+            this.labLuda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labLuda.Name = "labLuda";
-            this.labLuda.Size = new System.Drawing.Size(1129, 155);
+            this.labLuda.Size = new System.Drawing.Size(1690, 231);
             this.labLuda.TabIndex = 1;
             this.labLuda.Text = "IL BUCO NERO";
             // 
             // Initial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.labLuda);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Initial";
-            this.Size = new System.Drawing.Size(984, 524);
+            this.Size = new System.Drawing.Size(1838, 806);
             this.Load += new System.EventHandler(this.Initial_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
