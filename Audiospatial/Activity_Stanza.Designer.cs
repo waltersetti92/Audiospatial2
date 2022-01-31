@@ -64,11 +64,12 @@
             this.labTimeCounter.TabIndex = 24;
             this.labTimeCounter.Text = ".";
             this.labTimeCounter.Visible = false;
+            this.labTimeCounter.Click += new System.EventHandler(this.labTimeCounter_Click);
             // 
             // pbEast
             // 
             this.pbEast.BackColor = System.Drawing.Color.Transparent;
-            this.pbEast.Location = new System.Drawing.Point(681, 92);
+            this.pbEast.Location = new System.Drawing.Point(1269, 69);
             this.pbEast.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbEast.Name = "pbEast";
             this.pbEast.Size = new System.Drawing.Size(188, 192);
@@ -80,7 +81,7 @@
             // pbNorth
             // 
             this.pbNorth.BackColor = System.Drawing.Color.Transparent;
-            this.pbNorth.Location = new System.Drawing.Point(131, 538);
+            this.pbNorth.Location = new System.Drawing.Point(186, 69);
             this.pbNorth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbNorth.Name = "pbNorth";
             this.pbNorth.Size = new System.Drawing.Size(188, 192);
@@ -92,7 +93,7 @@
             // pbWest
             // 
             this.pbWest.BackColor = System.Drawing.Color.Transparent;
-            this.pbWest.Location = new System.Drawing.Point(101, 92);
+            this.pbWest.Location = new System.Drawing.Point(186, 738);
             this.pbWest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pbWest.Name = "pbWest";
             this.pbWest.Size = new System.Drawing.Size(188, 192);
@@ -113,7 +114,7 @@
             this.Controls.Add(this.pbWest);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Activity_Stanza";
-            this.Size = new System.Drawing.Size(1137, 803);
+            this.Size = new System.Drawing.Size(1541, 1004);
             this.Load += new System.EventHandler(this.Activity_Stanza_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbEast)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNorth)).EndInit();

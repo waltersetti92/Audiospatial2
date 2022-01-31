@@ -169,11 +169,12 @@ namespace Audiospatial
             Height = h;
 
             labCenter.Location = new Point(w / 2 - border, h / 2);
-            labTimeCounter.Location = new Point(w - 3 * border, border);
+            pbEast.Location = new Point(w - 3 * border, border);
 
-            pbNorth.Location = new Point(w / 2 - border / 2, border);
-            pbEast.Location = new Point(w - 3 * border, h / 2 + border);
-            pbWest.Location = new Point(2 * border, h / 2 + border);
+            //pbNorth.Location = new Point(w / 2 - border / 2, border);
+             pbNorth.Location = new Point(2 * border,  border);
+            //pbEast.Location = new Point(w - 3 * border, h / 2 + border);
+            //pbWest.Location = new Point(2 * border, h / 2 + border);
         }
         private void Activity_Stanza_Load(object sender, EventArgs e)
         {
@@ -181,6 +182,11 @@ namespace Audiospatial
         }
 
         private void labCenter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labTimeCounter_Click(object sender, EventArgs e)
         {
 
         }
