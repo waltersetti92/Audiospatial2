@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Audiospatial
 {
@@ -135,11 +136,11 @@ namespace Audiospatial
                         break;
                     }
                     if (status == 7 || status == 10 )
-                    {
-                        string strnum = representNumber(n);
-                        labTimeCounter.Visible = (strnum.Length > 0);
-                        strnum = fillBlanks(4, strnum);
-                        labTimeCounter.Text = strnum;
+                    {                    
+                       // string strnum = representNumber(n);
+                        //labTimeCounter.Visible = (strnum.Length > 0);
+                      // strnum = fillBlanks(1, strnum);
+                       // labTimeCounter.Text = strnum;
                         this.Update();
                         labTimeCounter.Invalidate();
                     }

@@ -176,7 +176,7 @@ namespace Audiospatial
                 {
                     arr1 = char.ToString(indata[18]);
                 }
-               if(String.Equals(arr1,"1") || String.Equals(arr1, "2") || String.Equals(arr1, "4"))
+               //if(String.Equals(arr1,"1") || String.Equals(arr1, "2") || String.Equals(arr1, "4"))
                 break;               
             }
             return true;

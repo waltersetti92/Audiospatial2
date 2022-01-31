@@ -264,9 +264,10 @@ namespace Audiospatial
 
                         aTimer.Interval = rate * timer_interval;
                         aTimer.Tag = TAG_TIMER;
-                        aTimer.Start();
-                        elapsedTime = 0;
-                        activity.setCountDown((duration - elapsedTime)); //duration-elapsedTime
+                       aTimer.Start();
+                        elapsedTime = 4;
+           activity.setCountDown((0));
+            activity.setCountDown((duration - elapsedTime)); //duration-elapsedTime
 
            
         }
