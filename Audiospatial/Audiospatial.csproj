@@ -360,5 +360,8 @@
   <ItemGroup>
     <None Include="bin\Debug\Resources\flaute2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Resources\Final_Indizio.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

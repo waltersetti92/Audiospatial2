@@ -42,18 +42,21 @@ namespace Audiospatial
         public int iDifficulty = 0;
         public int scenario;
         public int ripetiz = 0;
+        public int next_number = 0;
         ResumeFromMessage message_callback = null;
         public Speakers speakers = null;
         public string activity_form;
         public string idle_status;
         public string started_uda;
         public string data_start;
+        public string completed;
         public static System.Diagnostics.Process proc;
         public Main()
         {
             AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
             idle_status = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=0";
             started_uda = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=7" + "&data=" + data_start;
+            completed = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=16";
             Business_Logic BL = new Business_Logic(this);
             onactivity = 1;
             messaggio = 1;
@@ -92,12 +95,13 @@ namespace Audiospatial
             final1.Visible = false;
             finale_Scenario1.Visible = false;
             ucSpeaker1.init(speakers);
+           
             home();
             BackgroundImageLayout = ImageLayout.Stretch;
             BackgroundImage = Image.FromFile(resourcesPath + "\\" + background_image);
 
             activitiesList = readActivitiesList();
-            activity = new ActivityMathSpatialAudio(activitiesList, this, speakers, activity_Stanza1, debugInfo1);
+            activity = new ActivityMathSpatialAudio(activitiesList, this, speakers, activity_Stanza1, debugInfo1,ucSpeaker1);
         }
         private Activities readActivitiesList()
         {
@@ -294,6 +298,7 @@ namespace Audiospatial
             quinto_Scenario1.setPos(size.Width, size.Height);
             sesto_Scenario1.setPos(size.Width, size.Height);
             finale_Scenario1.setPos(size.Width, size.Height);
+            ucSpeaker1.setPos(size.Width, size.Height);
         }
         public void onStartActivity(int level, int type, int num_participants, string group)
         {
@@ -312,6 +317,14 @@ namespace Audiospatial
             {
                 activity_Stanza1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
+                this.Update();
+                BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_stanza);
+                this.Update();
+                ucSpeaker1.Visible = true;
+                ucSpeaker1.change_number();
+                this.Update();
+                
+                BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_trafficjam);
                 speakers.sound_speaker = "0A 03 ";
                 speakers.sound_time = " 03 ";
@@ -321,6 +334,14 @@ namespace Audiospatial
             }
             else if (onactivity == 3)
             {
+                activity_Stanza1.Visible = false;
+                BackgroundImageLayout = ImageLayout.Stretch;
+                this.Update();
+                BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_trafficjam);
+                this.Update();
+                ucSpeaker1.Visible = true;
+                ucSpeaker1.change_number();
+                this.Update();
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_plane);
@@ -332,6 +353,14 @@ namespace Audiospatial
             }
             else if (onactivity == 4)
             {
+                activity_Stanza1.Visible = false;
+                BackgroundImageLayout = ImageLayout.Stretch;
+                this.Update();
+                BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_plane);
+                this.Update();
+                ucSpeaker1.Visible = true;
+                ucSpeaker1.change_number();
+                this.Update();
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_tribal);
@@ -343,6 +372,14 @@ namespace Audiospatial
             }
             else if (onactivity == 5)
             {
+                activity_Stanza1.Visible = false;
+                BackgroundImageLayout = ImageLayout.Stretch;
+                this.Update();
+                BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_tribal);
+                this.Update();
+                ucSpeaker1.Visible = true;
+                ucSpeaker1.change_number();
+                this.Update();
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_lion);
@@ -354,6 +391,14 @@ namespace Audiospatial
             }
             else if (onactivity == 6)
             {
+                activity_Stanza1.Visible = false;
+                BackgroundImageLayout = ImageLayout.Stretch;
+                this.Update();
+                BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_lion);
+                this.Update();
+                ucSpeaker1.Visible = true;
+                ucSpeaker1.change_number();
+                this.Update();
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_maya);
@@ -470,7 +515,7 @@ namespace Audiospatial
             }
             message_callback = scenes;
         }
-        public void showMessage(string msg, string bt_text, ResumeFromMessage clb = null)
+        public async void showMessage(string msg, string bt_text, ResumeFromMessage clb = null)
         {
             currUC.Visible = false;
             message_callback = clb;
@@ -487,7 +532,11 @@ namespace Audiospatial
             else if (messaggio == 6)
                 sesto_Scenario1.setMessage_ps(bt_text);
             else if (messaggio == 7)
+            {
+                await uda_server_communication.Server_Request(completed);
                 finale_Scenario1.Visible = true;
+            }
+              
         }
         public void onCountDownEnd()
         {

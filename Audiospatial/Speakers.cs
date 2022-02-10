@@ -139,7 +139,6 @@ namespace Audiospatial
                 sp.Write(bytes, 0, bytes.Length);
                 Thread.Sleep(200);
 
-
             }
             if (test)
             {
@@ -176,7 +175,7 @@ namespace Audiospatial
                 {
                     arr1 = char.ToString(indata[18]);
                 }
-               //if(String.Equals(arr1,"1") || String.Equals(arr1, "2") || String.Equals(arr1, "4"))
+               if(String.Equals(arr1,"1") || String.Equals(arr1, "2") || String.Equals(arr1, "4"))
                 break;               
             }
             return true;

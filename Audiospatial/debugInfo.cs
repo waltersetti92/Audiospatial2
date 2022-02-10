@@ -47,5 +47,10 @@ namespace Audiospatial
         {
 
         }
+
+        private void labDebugResult_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

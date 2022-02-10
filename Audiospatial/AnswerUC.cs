@@ -15,7 +15,7 @@ namespace Audiospatial
     {
         public Main parentForm { get; set; }
         private int iDifficulty = 0;
-        public int timeleft = 10;
+        public int timeleft = 15;
         public string k;
         public string put_wait_data;
         public string put_started;
@@ -80,8 +80,8 @@ namespace Audiospatial
         public void counter()
         {
             timerlabel.Visible = true;
-            timerlabel.Text = "10";
-            timeleft = 10;
+            timerlabel.Text = "15";
+            timeleft = 15;
             timer1.Enabled = true;
             timer1.Start();
         }
@@ -94,24 +94,24 @@ namespace Audiospatial
                 {
                     k = parentForm.Status_Changed(parentForm.activity_form);
                     int status = int.Parse(k);
-
-                    if (status != 9 && status != 8)
+                    if (status == 11 || status == 12)
                     {
-                        if (status == 11 || status == 12)
-                        {
-                            Application.Exit();
-                            Environment.Exit(0);
-                        }
-                        if (status == 13)
-                        {
-                            this.Hide();
-                            parentForm.Abort_UDA();
-                            break;
-                        }
-                        if (status==10)
-                        {
+                        Application.Exit();
+                        Environment.Exit(0);
+                    }
+                    if (status == 13)
+                    {
+                        this.Hide();
+                        parentForm.Abort_UDA();
+                        break;
+                    }
+
+                    if (status == 10 || status == 7 || status == 6 || status == 14)
+                    {
+                        
+                        
                             await uda_server_communication.Server_Request(put_wait_data);
-                        }
+                        
                         Thread.Sleep(1000);
                         timeleft = timeleft - 1;
                         timerlabel.Text = timeleft.ToString();

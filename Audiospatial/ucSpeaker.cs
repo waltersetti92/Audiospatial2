@@ -9,25 +9,26 @@ namespace Audiospatial
     {
         public Main parentForm { get; set; }
         private Speakers speakers = null;
-        private string[] availableComs;
+        public int value_lbl=0;
 
         public ucSpeaker()
         {
             InitializeComponent();
+            labCenter.Text= Convert.ToString(value_lbl);
 
-            lbEastConnected.Text = "disconnected";
-            lbWestConnected.Text = "disconnected";
-            lbNorthConnected.Text = "disconnected";
+        }
+        public void setPos(int w, int h)
+        {
+
+            int offset = 0;
+            Location = new Point(offset, offset);
+            Width = w - 1 * offset;
+            Height = h - 1 * offset;
+
         }
         public void init(Speakers spk)
         {
-            speakers = spk;
-            availableComs = Speakers.getAvailableComs();
-            foreach (string com in availableComs)
-                cmbCom.Items.Add(com);
-
-            if (cmbCom.Items.Count > 0)
-                cmbCom.SelectedIndex = 0;
+            
         }
 
         private void btWest_Click(object sender, EventArgs e)
@@ -59,19 +60,25 @@ namespace Audiospatial
 
         private void btSetCom_Click(object sender, EventArgs e)
         {
-            string text = cmbCom.SelectedItem.ToString();
-            System.IO.File.WriteAllText(speakers.comFile, text);
-
-            speakers = speakers.openPort(text);
+            
         }
 
         private void btReset_Click(object sender, EventArgs e)
         {
             speakers.reinitSpeakers();
         }
-
-        private void ucSpeaker_Load(object sender, EventArgs e)
+        public void change_number()
         {
+            labCenter.Text = Convert.ToString(value_lbl);
+            this.Update();
+            labCenter.Visible = true;
+            this.Update();
+            Thread.Sleep(7000);
+            this.Visible = false;
+            value_lbl = 0;
+        }
+        private void ucSpeaker_Load(object sender, EventArgs e)
+        {          
 
         }
 
@@ -83,6 +90,11 @@ namespace Audiospatial
         private void btClose_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+
+        }
+
+        private void labCenter_Click(object sender, EventArgs e)
+        {
 
         }
     }

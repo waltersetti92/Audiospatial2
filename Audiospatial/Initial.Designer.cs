@@ -37,7 +37,7 @@
             this.labLuda.BackColor = System.Drawing.Color.Transparent;
             this.labLuda.Font = new System.Drawing.Font("Snap ITC", 90F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labLuda.ForeColor = System.Drawing.Color.Green;
-            this.labLuda.Location = new System.Drawing.Point(67, 340);
+            this.labLuda.Location = new System.Drawing.Point(71, 378);
             this.labLuda.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.labLuda.Name = "labLuda";
             this.labLuda.Size = new System.Drawing.Size(1690, 231);

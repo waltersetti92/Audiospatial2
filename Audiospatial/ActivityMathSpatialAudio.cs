@@ -16,6 +16,7 @@ namespace Audiospatial
         private readonly Activity_Stanza activity;
         private readonly Speakers speakers;
         private readonly debugInfo debug;
+        private readonly ucSpeaker ucs;
         private readonly Activities available_activities;
 
         private SingleActivity currActivity;
@@ -68,15 +69,17 @@ namespace Audiospatial
         private int currSound = 0;    // num of sound reproduced [1->currOperand]
 
         private int elapsedTime = 0;
+        public int final_value;
      
-        public ActivityMathSpatialAudio(Activities activities, Main form, Speakers speakers, Activity_Stanza activity, debugInfo debug)
+        public ActivityMathSpatialAudio(Activities activities, Main form, Speakers speakers, Activity_Stanza activity, debugInfo debug, ucSpeaker ucs)
         {
             this.available_activities = activities;
             this.form = form;
             this.speakers = speakers;
             this.activity = activity;
             this.debug = debug;
-        }
+            this.ucs = ucs;
+    }
         public void init(int diff, int type, int num_participants, string group)
         {
             iDifficultyLevel = diff;
@@ -199,6 +202,7 @@ namespace Audiospatial
 
             if (currOp == totOps)
             {
+                ucs.value_lbl = currResult;
                 nextParticipant();
                 return;
             }
@@ -371,8 +375,9 @@ namespace Audiospatial
                                                 // following the speaker_labels      = new string[] { "02", "03", "04"};
                                                 //                                          => 0: west, 1: north, 2: east
 
-        public int[] operands { get; set; }     // [NOP] : define which numbers must be manipulated
-        public int[] operations { get; set; }   // [3] : define which operation stand in each of the three speaker ( +,-,*,/)
+     public int[] operands { get; set; }     // [NOP] : define which numbers must be manipulated
+
+     public int[] operations { get; set; }   // [3] : define which operation stand in each of the three speaker ( +,-,*,/)
                                                 // used to fill:  foreach (int op in currActivity.operations) currOperationsLabels.Add(operations_labels[op]);
     }
 

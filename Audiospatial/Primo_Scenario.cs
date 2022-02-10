@@ -17,7 +17,6 @@ namespace Audiospatial
         public Speakers speakers = null;
         public int timeleft = 10;
         public int timer_game = 0;
-        private int total_seconds;
         public int seconds = 0;
         public int minutes = 5;
         public string put_started;
@@ -104,9 +103,9 @@ namespace Audiospatial
                             parentForm.Abort_UDA();
                             break;
                         }
-                        if (status == 10)
+                        if (status == 10 || status==7)
                         {
-                            await uda_server_communication.Server_Request(put_started);
+                            await uda_server_communication.Server_Request(put_wait_data);
                         }
                         Thread.Sleep(1000);
                         timeleft--;
@@ -134,9 +133,9 @@ namespace Audiospatial
                             parentForm.Abort_UDA();
                             break;
                         }
-                        if (status == 10)
+                        if (status == 10 || status==7)
                         {
-                            await uda_server_communication.Server_Request(put_started);
+                            await uda_server_communication.Server_Request(put_wait_data);
                         }
                         this.timer1.Stop();
                         timerlabel.Enabled = false;

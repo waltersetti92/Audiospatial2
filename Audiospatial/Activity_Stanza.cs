@@ -75,6 +75,17 @@ namespace Audiospatial
 
           return number.ToString();
         }
+        public void final_number(int i)
+        {
+            labCenter.Text = Convert.ToString(i);
+            this.Update();
+
+            labCenter.Visible = true;
+            this.Update();
+           
+            Thread.Sleep(5000);
+
+        }
 
         // after new operand is going to be given
         public void nextOperand(int curr_starting_number, int curr_result)
@@ -179,7 +190,7 @@ namespace Audiospatial
         }
         private void Activity_Stanza_Load(object sender, EventArgs e)
         {
-
+            labCenter.Visible = true;
         }
 
         private void labCenter_Click(object sender, EventArgs e)
