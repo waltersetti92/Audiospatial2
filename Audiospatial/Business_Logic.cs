@@ -19,7 +19,6 @@ using System.Text.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Timer = System.Timers.Timer;
-
 namespace Audiospatial
 {
     class Business_Logic
@@ -28,6 +27,7 @@ namespace Audiospatial
         public string save_status;
         private static System.Timers.Timer aTimer;
         public int counter_timer;
+        public bool firststart = true;
         public Business_Logic(Main form)
         {
             mn = form;
@@ -39,7 +39,7 @@ namespace Audiospatial
         }
         public async void New_Status_UDA(object source, ElapsedEventArgs e)
         {
-            string get_status_uda = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/get/?i=1";  // url per ottenere lo stato dell'UDA  
+            string get_status_uda = "api/uda/get/?i=5";  // url per ottenere lo stato dell'UDA  
             try
             {
                 string uda_status = await uda_server_communication.Server_Request(get_status_uda); //stato dell'UDA ottenuto con la classe UDA_server_communication
@@ -47,16 +47,26 @@ namespace Audiospatial
                 {
                     mn.data_start = await uda_server_communication.Server_Request_started(get_status_uda);
                 }
+
                 if (counter_timer == 0) // salvo lo stato dell'UDA al tempo t=0 e la prima volta che cambia
                 {
                     save_status = uda_status;
                     mn.Status_Changed(uda_status);
-                    //ac.stattus = uda_status;
                     mn.activity_form = uda_status;
-                    string put_server = Url_Put(uda_status); // creo la stringa per il put al server che notifica il cambio di stato dell'UDA
+                    string put_server;
+                    if (firststart || Equals(uda_status, "0"))
+                    {
+
+                        put_server = Url_Put("5"); // creo la stringa per il put al server che notifica il cambio di stato dell'UDA
+                        firststart = false;
+
+                    }
+                    else
+                    {
+                        put_server = Url_Put(uda_status);
+                    }
                     await uda_server_communication.Server_Request(put_server); // qui mando al server il comando  
                     counter_timer++;
-
                 }
                 else //verifico che lo stato corrente sia diverso dallo stato salvato
                 {
@@ -84,11 +94,11 @@ namespace Audiospatial
             if (ik >= 0 && ik < 20)
             {
                 if (ik == 11 || ik == 8)
-                    return "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1" + "&k=" + ik1.ToString();
+                    return "/api/uda/put/?i=5" + "&k=" + ik1.ToString();
                 else if (ik == 6)
-                    return "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1" + "&k=" + ik1.ToString() + "&data=" + mn.data_start;
+                    return "/api/uda/put/?i=5" + "&k=" + ik1.ToString() + "&data=" + mn.data_start;
                 else
-                    return "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1" + "&k=" + ik.ToString();
+                    return "/api/uda/put/?i=5" + "&k=" + ik.ToString();
             }
 
             else
@@ -97,5 +107,7 @@ namespace Audiospatial
         }
     }
 }
+
+
 
 

@@ -51,12 +51,34 @@ namespace Audiospatial
         public string data_start;
         public string completed;
         public static System.Diagnostics.Process proc;
+        public int turno = 0;
+        public string wait_data()
+        {
+            int[] can_answer;
+            if (uda_server_communication.explorers.Length == 0)
+            {
+                can_answer = new int[0];
+            }
+            else
+            {
+                can_answer = new int[] { uda_server_communication.explorers[
+                    turno % uda_server_communication.explorers.Length] };
+            }
+            turno += 1;
+            Dictionary<String, object> request = new Dictionary<String, object>();
+            request.Add("question", "Inserisci il numero comune ai due cerchi");
+            request.Add("input_type", 0);
+            request.Add("can_answer", can_answer);
+
+            string data = JsonConvert.SerializeObject(request);
+            return "api/uda/put/?i=5&k=14&data=" + data;
+        }
         public Main()
         {
             AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
-            idle_status = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=0";
-            started_uda = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=7" + "&data=" + data_start;
-            completed = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=16";
+            idle_status = "https://luda.nixo.xyz//api/uda/put/?i=5&k=0";
+            started_uda = "https://luda.nixo.xyz//api/uda/put/?i=5&k=7" + "&data=" + data_start;
+            completed = "https://luda.nixo.xyz//api/uda/put/?i=5&k=16";
             Business_Logic BL = new Business_Logic(this);
             onactivity = 1;
             messaggio = 1;
@@ -102,6 +124,11 @@ namespace Audiospatial
 
             activitiesList = readActivitiesList();
             activity = new ActivityMathSpatialAudio(activitiesList, this, speakers, activity_Stanza1, debugInfo1,ucSpeaker1);
+        }
+        public async void PutStarted()
+        {
+            await uda_server_communication.Server_Request("api/uda/put/?i=5&k=7&data=" + data_start);
+
         }
         private Activities readActivitiesList()
         {
@@ -182,7 +209,7 @@ namespace Audiospatial
                 if (status == 6)
                 {
                     initial1.Visible = false;
-                    video_reproduction("C:\\Users\\wsetti\\Documents\\Video_LUDA\\LUDA_Matematica_1.mov");
+                   // video_reproduction("C:\\Users\\wsetti\\Documents\\Video_LUDA\\LUDA_Matematica_1.mov");
                     onStartActivity(2, 0, 1, "1");
                 }
                 if (status == 8)
@@ -200,7 +227,7 @@ namespace Audiospatial
                     Environment.Exit(0);
 
                 }
-                if (status == 15)
+                if (status == 14)
                 {
 
                 }
@@ -279,12 +306,12 @@ namespace Audiospatial
 
         private void Main_Load(object sender, EventArgs e)
         {
-            string mpvcommand = "--idle --input-ipc-server=\\\\.\\pipe\\mpv-pipe";
+          /*  string mpvcommand = "--idle --input-ipc-server=\\\\.\\pipe\\mpv-pipe";
             proc = new System.Diagnostics.Process();
             proc.StartInfo.FileName = "C:\\Users\\wsetti\\Documents\\Video_LUDA\\mpv";
             proc.StartInfo.Arguments = mpvcommand;
             proc.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            proc.Start();
+            proc.Start();*/
             Size size = this.Size; //commit
             initial1.setPos(size.Width, size.Height);
             activityUdaUC1.setPos(size.Width, size.Height);

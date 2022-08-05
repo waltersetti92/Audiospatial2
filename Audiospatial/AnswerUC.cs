@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using Newtonsoft.Json.Linq;
 
 namespace Audiospatial
 {
@@ -25,9 +26,9 @@ namespace Audiospatial
             InitializeComponent();
             btAnswer.Visible = false;
             txtResult.Visible = false;
-            put_started = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=7";
-            put_wait_data = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
-            get_status_uda = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/get/?i=1";
+            put_started = "/api/uda/put/?i=5&k=7";
+            put_wait_data = "/api/uda/put/?i=5&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
+            get_status_uda = "/api/uda/get/?i=5";
         }
         public void setPos(int w, int h)
         {
@@ -108,25 +109,28 @@ namespace Audiospatial
 
                     if (status == 10 || status == 7 || status == 6 || status == 14)
                     {
-                        
-                        
-                            await uda_server_communication.Server_Request(put_wait_data);
-                        
+
+                        await uda_server_communication.Server_Request(put_wait_data);
+
                         Thread.Sleep(1000);
                         timeleft = timeleft - 1;
                         timerlabel.Text = timeleft.ToString();
                         this.Update();
                         while (true)
                         {
-                            if (status == 15)
+                            if (status == 14)
                             {
-                                string data = await uda_server_communication.Server_Request_datasent(get_status_uda);
+                                JToken data = await uda_server_communication.Server_Request_datasent(get_status_uda);
                                 timerlabel.Visible = false;
                                 timer1.Stop();
                                 timerlabel.Visible = false;
                                 timer1.Enabled = false;
                                 await uda_server_communication.Server_Request(put_started);
-                                parentForm.onAnswer(data);                              
+                                parentForm.PutStarted();
+
+                                // FIXME
+                                parentForm.onAnswer("data");
+                            
                             }
                             break;
                         }

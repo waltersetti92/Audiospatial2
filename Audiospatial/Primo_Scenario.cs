@@ -15,7 +15,7 @@ namespace Audiospatial
     {
         public Main parentForm { get; set; }
         public Speakers speakers = null;
-        public int timeleft = 10;
+        public int timeleft = 1;
         public int timer_game = 0;
         public int seconds = 0;
         public int minutes = 5;
@@ -28,8 +28,8 @@ namespace Audiospatial
             this.BackgroundImage = Properties.Resources.lion;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             speakers = new Speakers();
-            put_started = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=7";
-            put_wait_data = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=1&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
+            put_started = "/api/uda/put/?i=1&k=7";
+            put_wait_data = "/api/uda/put/?i=1&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
         }
         public void setPos(int w, int h)
         {
