@@ -334,8 +334,7 @@ namespace Audiospatial
                 activityUdaUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_stanza);
-                speakers.sound_speaker = "13 09 ";
-                speakers.sound_time = " 09 ";
+                speakers.sound_to_play = "sveglia";
                 //speakers.reinitSpeakers();
                 primo_Scenario1.Visible = true;
                 primo_Scenario1.counter();
@@ -353,8 +352,7 @@ namespace Audiospatial
                 
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_trafficjam);
-                speakers.sound_speaker = "0A 03 ";
-                speakers.sound_time = " 03 ";
+                speakers.sound_to_play = "clacson";
                 //speakers.reinitSpeakers();
                 secondo_Scenario1.Visible = true;
                 secondo_Scenario1.counter();
@@ -372,8 +370,7 @@ namespace Audiospatial
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_plane);
-                speakers.sound_speaker = "12 09 ";
-                speakers.sound_time = " 09 ";
+                speakers.sound_to_play = "thunder";
                 //speakers.reinitSpeakers();
                 terzo_Scenario1.Visible = true;
                 terzo_Scenario1.counter();
@@ -391,8 +388,7 @@ namespace Audiospatial
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_tribal);
-                speakers.sound_speaker = "10 0E ";
-                speakers.sound_time = " 10 ";
+                speakers.sound_to_play = "bongo";
                 //speakers.reinitSpeakers();
                 quarto_Scenario1.Visible = true;
                 quarto_Scenario1.counter();
@@ -410,8 +406,7 @@ namespace Audiospatial
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_lion);
-                speakers.sound_speaker = "0E 09 ";
-                speakers.sound_time = " 0A ";
+                speakers.sound_to_play = "ruggito";
                // speakers.reinitSpeakers();
                 quinto_Scenario1.Visible = true;
                 quinto_Scenario1.counter();
@@ -429,8 +424,7 @@ namespace Audiospatial
                 messageUC1.Visible = false;
                 BackgroundImageLayout = ImageLayout.Stretch;
                 BackgroundImage = Image.FromFile(resourcesPath1 + "\\" + background_image_maya);
-                speakers.sound_speaker = "07 0A ";
-                speakers.sound_time = " 0A ";
+                speakers.sound_to_play = "acchiappasogni";
                 //speakers.reinitSpeakers();
                 sesto_Scenario1.Visible = true;
                 sesto_Scenario1.counter();

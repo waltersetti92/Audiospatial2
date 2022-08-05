@@ -30,7 +30,7 @@ namespace Audiospatial
 
         private ActivityResult results;
 
-        private static readonly string[] speaker_labels = new string[] { "01", "02", "04" };     // west, north, east
+        private static readonly string[] speaker_labels = new string[] { "L", "B", "R" };     // west, north, east
 
         private static readonly string[] operations_symbols = new string[] { "dog", "cat", "lion", "chewbacca" };
         private static readonly string[] operations_labels = new string[] { "+", "-", "x", "/" };
@@ -255,7 +255,7 @@ namespace Audiospatial
             aTimer.Tag = TAG_SOUND;
             aTimer.Start();
             currSound = 1;
-            if (iType == N_TYPE_SPATIAL) speakers.startSpeaker(source);
+            if (iType == N_TYPE_SPATIAL) speakers.play(source);
             else form.playbackResourceAudio(source);
         }
 
@@ -278,7 +278,7 @@ namespace Audiospatial
 
         // callback of every timer
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
-        {
+            {
             aTimer.Stop();
 
             switch (((System.Windows.Forms.Timer)(myObject)).Tag)
@@ -288,11 +288,11 @@ namespace Audiospatial
                     if (currSound < currOperand)
                     {
                         //SystemSounds.Exclamation.Play();
-                        if (iType == N_TYPE_SPATIAL) speakers.startSpeaker(speaker_labels[currSpeaker]);
+                        if (iType == N_TYPE_SPATIAL) speakers.play(speaker_labels[currSpeaker]);
                         else form.playbackResourceAudio(currOperationsSymbols[currSpeaker]);
-
+                       // Thread.Sleep(1000);
                         currSound++;
-                        aTimer.Enabled = true;
+                        aTimer.Start();
                     }
                     else
                         StartTimer(1, answerTime[iDifficultyLevel]);

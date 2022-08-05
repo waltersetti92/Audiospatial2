@@ -31,42 +31,6 @@ namespace Audiospatial
             
         }
 
-        private void btWest_Click(object sender, EventArgs e)
-        {
-            speakers.startSpeaker(Speakers.available_speakers[0]);
-        }
-
-        private void btNorth_Click(object sender, EventArgs e)
-        {
-            speakers.startSpeaker(Speakers.available_speakers[1]);
-        }
-
-        private void btEast_Click(object sender, EventArgs e)
-        {
-            speakers.startSpeaker(Speakers.available_speakers[2]);
-        }
-
-        private void btAll_Click(object sender, EventArgs e)
-        {
-            speakers.startSpeaker(Speakers.available_speakers[0]);
-            Thread.Sleep(1500);
-
-            speakers.startSpeaker(Speakers.available_speakers[1]);
-            Thread.Sleep(1500);
-
-            speakers.startSpeaker(Speakers.available_speakers[2]);
-            Thread.Sleep(1500);
-        }
-
-        private void btSetCom_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btReset_Click(object sender, EventArgs e)
-        {
-            speakers.reinitSpeakers();
-        }
         public void change_number()
         {
             labCenter.Text = Convert.ToString(value_lbl);
