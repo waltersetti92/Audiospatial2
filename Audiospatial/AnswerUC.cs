@@ -6,9 +6,12 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
 using System.Windows.Forms;
+using System.Threading;
+using System.Media;
+using System.IO;
 using Newtonsoft.Json.Linq;
+
 
 namespace Audiospatial
 {
@@ -16,7 +19,7 @@ namespace Audiospatial
     {
         public Main parentForm { get; set; }
         private int iDifficulty = 0;
-        public int timeleft = 15;
+        public int timeleft = 10;
         public string k;
         public string put_wait_data;
         public string put_started;
@@ -95,6 +98,7 @@ namespace Audiospatial
                 {
                     k = parentForm.Status_Changed(parentForm.activity_form);
                     int status = int.Parse(k);
+                    string response = null;
                     if (status == 11 || status == 12)
                     {
                         Application.Exit();
@@ -110,7 +114,11 @@ namespace Audiospatial
                     if (status == 10 || status == 7 || status == 6 || status == 14)
                     {
 
-                        await uda_server_communication.Server_Request(put_wait_data);
+                        if (status != 14)
+                        {
+                            await uda_server_communication.Server_Request(parentForm.wait_data());
+
+                        }
 
                         Thread.Sleep(1000);
                         timeleft = timeleft - 1;
@@ -121,15 +129,34 @@ namespace Audiospatial
                             if (status == 14)
                             {
                                 JToken data = await uda_server_communication.Server_Request_datasent(get_status_uda);
+                                if (!(data is JArray))
+                                {
+                                    continue;
+                                }
+                                var explorers = data.ToObject<JArray>();
+
+                                foreach (var explorer in data)
+                                {
+                                    Dictionary<string, object> exp = explorer.ToObject<Dictionary<string, object>>();
+                                    string timestamp = (string)explorer["timestamp"];
+                                    if (timestamp == null || timestamp == "0000-00-00 00:00:00")
+                                    {
+                                        continue;
+                                    }
+                                    response = (string)explorer["answer"];
+                                    break;
+                                }
+                                if (response == null) { break; }
+                             //   JToken data = await uda_server_communication.Server_Request_datasent(get_status_uda);
                                 timerlabel.Visible = false;
                                 timer1.Stop();
                                 timerlabel.Visible = false;
                                 timer1.Enabled = false;
-                                await uda_server_communication.Server_Request(put_started);
+                             //   await uda_server_communication.Server_Request(put_started);
                                 parentForm.PutStarted();
 
                                 // FIXME
-                                parentForm.onAnswer("data");
+                                parentForm.onAnswer(response);
                             
                             }
                             break;

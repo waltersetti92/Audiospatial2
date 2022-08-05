@@ -66,7 +66,7 @@ namespace Audiospatial
             }
             turno += 1;
             Dictionary<String, object> request = new Dictionary<String, object>();
-            request.Add("question", "Inserisci il numero comune ai due cerchi");
+            request.Add("question", "Inserisci il risultato dell'operazione");
             request.Add("input_type", 0);
             request.Add("can_answer", can_answer);
 
@@ -125,6 +125,7 @@ namespace Audiospatial
             activitiesList = readActivitiesList();
             activity = new ActivityMathSpatialAudio(activitiesList, this, speakers, activity_Stanza1, debugInfo1,ucSpeaker1);
         }
+
         public async void PutStarted()
         {
             await uda_server_communication.Server_Request("api/uda/put/?i=5&k=7&data=" + data_start);

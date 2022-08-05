@@ -28,8 +28,8 @@ namespace Audiospatial
             this.BackgroundImage = Properties.Resources.lion;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             speakers = new Speakers();
-            put_started = "/api/uda/put/?i=1&k=7";
-            put_wait_data = "/api/uda/put/?i=1&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
+            put_started = "/api/uda/put/?i=5&k=7";
+            put_wait_data = "/api/uda/put/?i=5&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
         }
         public void setPos(int w, int h)
         {
