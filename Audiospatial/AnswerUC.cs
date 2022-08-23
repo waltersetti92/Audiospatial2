@@ -156,6 +156,7 @@ namespace Audiospatial
                                 timer1.Stop();
                                 timerlabel.Visible = false;
                                 timer1.Enabled = false;
+                                label1.Visible = false;
                              //   await uda_server_communication.Server_Request(put_started);
       
 

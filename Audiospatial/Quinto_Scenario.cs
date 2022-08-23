@@ -14,7 +14,8 @@ namespace Audiospatial
     public partial class Quinto_Scenario : UserControl
     {
         public Main parentForm { get; set; }
-        public int timeleft = 10;
+        public Speakers speakers = null;
+        public int timeleft = 1;
         public int timer_game = 0;
         private int total_seconds;
         public int seconds = 0;
@@ -26,8 +27,9 @@ namespace Audiospatial
             InitializeComponent();
             this.BackgroundImage = Properties.Resources.lion;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            put_started = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=5&k=7";
-            put_wait_data = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=5&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
+            speakers = new Speakers();
+            put_started = "/api/uda/put/?i=5&k=7";
+            put_wait_data = "/api/uda/put/?i=5&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
         }
         public void setPos(int w, int h)
         {
@@ -98,9 +100,9 @@ namespace Audiospatial
                             parentForm.Abort_UDA();
                             break;
                         }
-                        if (status == 10)
+                        if (status == 10 || status == 7)
                         {
-                            await uda_server_communication.Server_Request(put_started);
+                            await uda_server_communication.Server_Request(put_wait_data);
                         }
                         Thread.Sleep(1000);
                         timeleft--;
@@ -128,9 +130,9 @@ namespace Audiospatial
                             parentForm.Abort_UDA();
                             break;
                         }
-                        if (status == 10)
+                        if (status == 10 || status == 7)
                         {
-                            await uda_server_communication.Server_Request(put_started);
+                            await uda_server_communication.Server_Request(put_wait_data);
                         }
                         this.timer1.Stop();
                         timerlabel.Enabled = false;

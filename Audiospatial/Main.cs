@@ -80,10 +80,10 @@ namespace Audiospatial
             started_uda = "https://luda.nixo.xyz//api/uda/put/?i=5&k=7" + "&data=" + data_start;
             completed = "https://luda.nixo.xyz//api/uda/put/?i=5&k=16";
             Business_Logic BL = new Business_Logic(this);
-            onactivity = 1;
+            onactivity = 1; // bisogna mettere 1
             messaggio = 1;
             scenario = 1;
-            participants = 0;
+            participants = 0; // qui 0
             speakers = new Speakers();
             InitializeComponent();
             initial1.parentForm = this;
@@ -207,6 +207,14 @@ namespace Audiospatial
             this.BeginInvoke((Action)delegate ()
             {
                 int status = int.Parse(k);
+                if (status == 0)
+                {    
+                    BackgroundImageLayout = ImageLayout.Stretch;
+                    BackgroundImage = Image.FromFile(resourcesPath + "\\" + background_image);
+                    finale_Scenario1.Visible = false;
+                    initial1.Visible = true;
+                    k = "5";
+                }
                 if (status == 6)
                 {
                     initial1.Visible = false;
@@ -261,6 +269,7 @@ namespace Audiospatial
             if (currUC != null) currUC.Visible = false;
             finale_Scenario1.Show();
             currUC = finale_Scenario1;
+            finale_Scenario1.indizio();
         }
         public void home()
         {
@@ -487,7 +496,7 @@ namespace Audiospatial
         }
         public void onAnswer(string result)
         {
-           
+
             if (activity.isCorrect(Int32.Parse(result))) playbackResourceAudio("success");
             else playbackResourceAudio("failure");
             Thread.Sleep(2000);
@@ -558,8 +567,7 @@ namespace Audiospatial
             {
                 await uda_server_communication.Server_Request(completed);
                 finale_Scenario1.Visible = true;
-            }
-              
+            }           
         }
         public void onCountDownEnd()
         {
@@ -611,6 +619,11 @@ namespace Audiospatial
         }
 
         private void terzo_Scenario1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

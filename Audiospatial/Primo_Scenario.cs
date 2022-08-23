@@ -15,7 +15,7 @@ namespace Audiospatial
     {
         public Main parentForm { get; set; }
         public Speakers speakers = null;
-        public int timeleft = 1;
+        public int timeleft = 1; //timeleft deve essere 0
         public int timer_game = 0;
         public int seconds = 0;
         public int minutes = 5;
@@ -61,17 +61,7 @@ namespace Audiospatial
 
         }
 
-        private void Start_Click(object sender, EventArgs e)
-        {
-          //  speakers.sound_speaker = "03";
-           parentForm.closeMessage();
-        }
-
-        private void Alarm_Click_1(object sender, EventArgs e)
-        {
-            parentForm.playbackResourceAudio("Alarm_sound09");
-        }
-
+        
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             //parentForm.playbackResourceAudio("Alarm_sound");

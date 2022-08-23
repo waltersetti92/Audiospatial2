@@ -14,9 +14,9 @@ namespace Audiospatial
     public partial class Sesto_Scenario : UserControl
     {
         public Main parentForm { get; set; }
+        public Speakers speakers = null;
         public int timeleft = 10;
         public int timer_game = 0;
-        private int total_seconds;
         public int seconds = 0;
         public int minutes = 5;
         public string put_started;
@@ -24,8 +24,11 @@ namespace Audiospatial
         public Sesto_Scenario()
         {
             InitializeComponent();
-            put_started = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=5&k=7";
-            put_wait_data = "https://www.sagosoft.it/_API_/cpim/luda/www/luda_20210111_1500//api/uda/put/?i=5&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
+            this.BackgroundImage = Properties.Resources.lion;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            speakers = new Speakers();
+            put_started = "/api/uda/put/?i=5&k=7";
+            put_wait_data = "/api/uda/put/?i=5&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
 
         }
         public void setPos(int w, int h)
@@ -75,6 +78,8 @@ namespace Audiospatial
         {
             if (timeleft > 0)
             {
+                timerlabel.Enabled = true;
+                timerlabel.Visible = true;
                 while (true)
                 {
                     string k = parentForm.Status_Changed(parentForm.activity_form);
@@ -92,9 +97,9 @@ namespace Audiospatial
                             parentForm.Abort_UDA();
                             break;
                         }
-                        if (status == 10)
+                        if (status == 10 || status == 7)
                         {
-                            await uda_server_communication.Server_Request(put_started);
+                            await uda_server_communication.Server_Request(put_wait_data);
                         }
                         Thread.Sleep(1000);
                         timeleft--;
@@ -122,14 +127,16 @@ namespace Audiospatial
                             parentForm.Abort_UDA();
                             break;
                         }
-                        if (status == 10)
+                        if (status == 10 || status == 7)
                         {
-                            await uda_server_communication.Server_Request(put_started);
+                            await uda_server_communication.Server_Request(put_wait_data);
                         }
                         this.timer1.Stop();
-                        timerlabel.Enabled = false;
-                        timerlabel.Visible = false;
+                      //  timerlabel.Enabled = false;
+                       // timerlabel.Visible = false;
                         await uda_server_communication.Server_Request(put_started);
+                        timeleft = 10;
+                        timerlabel.Text = timeleft.ToString();
                         parentForm.closeMessage();
                     }
                     break;

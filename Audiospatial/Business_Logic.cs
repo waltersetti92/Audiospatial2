@@ -56,7 +56,10 @@ namespace Audiospatial
                     string put_server;
                     if (firststart || Equals(uda_status, "0"))
                     {
-
+                        mn.onactivity = 1;
+                        mn.messaggio = 1;
+                        mn.scenario = 1;
+                        mn.participants = 0;    
                         put_server = Url_Put("5"); // creo la stringa per il put al server che notifica il cambio di stato dell'UDA
                         firststart = false;
 
