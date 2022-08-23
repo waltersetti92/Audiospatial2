@@ -135,9 +135,11 @@ namespace Audiospatial
                             await uda_server_communication.Server_Request(put_wait_data);
                         }
                         this.timer1.Stop();
-                        timerlabel.Enabled = false;
-                        timerlabel.Visible = false;
+                        //timerlabel.Enabled = false;
+                        //timerlabel.Visible = false;
                         await uda_server_communication.Server_Request(put_started);
+                        timeleft = 10;
+                        timerlabel.Text = timeleft.ToString();
                         parentForm.closeMessage();
                     }
                     break;

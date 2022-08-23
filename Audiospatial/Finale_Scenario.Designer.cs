@@ -119,9 +119,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Audiospatial.Properties.Resources.alarm;
-            this.pictureBox1.Location = new System.Drawing.Point(894, 749);
+            this.pictureBox1.Location = new System.Drawing.Point(850, 736);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(376, 277);
+            this.pictureBox1.Size = new System.Drawing.Size(582, 455);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
