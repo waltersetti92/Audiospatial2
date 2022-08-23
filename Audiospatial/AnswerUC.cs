@@ -146,14 +146,18 @@ namespace Audiospatial
                                     response = (string)explorer["answer"];
                                     break;
                                 }
-                                if (response == null) { break; }
-                             //   JToken data = await uda_server_communication.Server_Request_datasent(get_status_uda);
+                                if (response == null) {
+
+                                    parentForm.PutStarted();
+                                    break; }
+                        
+                                //   JToken data = await uda_server_communication.Server_Request_datasent(get_status_uda);
                                 timerlabel.Visible = false;
                                 timer1.Stop();
                                 timerlabel.Visible = false;
                                 timer1.Enabled = false;
                              //   await uda_server_communication.Server_Request(put_started);
-                                parentForm.PutStarted();
+      
 
                                 // FIXME
                                 parentForm.onAnswer(response);

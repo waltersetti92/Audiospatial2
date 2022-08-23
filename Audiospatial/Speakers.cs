@@ -15,7 +15,8 @@ namespace Audiospatial
     public class Speakers
     {
         public String sound_to_play = "";
-        String url = "http://192.168.100.4:8766/";
+        //String url = "http://192.168.100.4:8766/"; //quello giusto
+        String url = "https://luda.nixo.xyz/";
 
         private Dictionary<string, string> soundmap = new Dictionary<string, string> {
             { "sveglia", "menta"},

@@ -487,10 +487,11 @@ namespace Audiospatial
         }
         public void onAnswer(string result)
         {
-            answerUC1.Visible = false;
+           
             if (activity.isCorrect(Int32.Parse(result))) playbackResourceAudio("success");
             else playbackResourceAudio("failure");
             Thread.Sleep(2000);
+            answerUC1.Visible = false;
             activity.nextOperand();
             currUC = activity_Stanza1;
         }
