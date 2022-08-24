@@ -60,6 +60,9 @@ namespace Audiospatial
         }
         public void counter()
         {
+            timerlabel.Visible = true;
+            timerlabel.Text = "10";
+            timeleft = 10;
             timer1.Enabled = true;
             timer1.Start();
 

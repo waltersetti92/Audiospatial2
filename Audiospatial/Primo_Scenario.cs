@@ -15,7 +15,7 @@ namespace Audiospatial
     {
         public Main parentForm { get; set; }
         public Speakers speakers = null;
-        public int timeleft = 1; //timeleft deve essere 0
+        public int timeleft = 10; //timeleft deve essere 0
         public int timer_game = 0;
         public int seconds = 0;
         public int minutes = 5;
@@ -30,6 +30,9 @@ namespace Audiospatial
             speakers = new Speakers();
             put_started = "/api/uda/put/?i=5&k=7";
             put_wait_data = "/api/uda/put/?i=5&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
+            timerlabel.Text = "15";
+            timeleft = 15;
+
         }
         public void setPos(int w, int h)
         {
@@ -58,7 +61,6 @@ namespace Audiospatial
 
         private void Primo_Scenario_Load(object sender, EventArgs e)
         {
-
         }
 
         
@@ -68,10 +70,14 @@ namespace Audiospatial
         }
         public void counter()
         {
+            timerlabel.Visible = true;
+            timeleft = 15;
+            timerlabel.Text = "15";
             timer1.Enabled = true;
             timer1.Start();
 
         }
+
         private async void timer1_Tick(object sender, EventArgs e)
         {
             if (timeleft > 0)
@@ -98,9 +104,14 @@ namespace Audiospatial
                             await uda_server_communication.Server_Request(put_wait_data);
                         }
                         Thread.Sleep(1000);
-                        timeleft--;
+                        timeleft = timeleft - 1;
+                        if(timeleft<10 && timeleft>0)
+                            timerlabel.Text = "0" + timeleft.ToString();
+                        else
                         timerlabel.Text = timeleft.ToString();
+                        this.Update();
                     }
+
                     break;
                 }
             }
@@ -127,15 +138,15 @@ namespace Audiospatial
                         {
                             await uda_server_communication.Server_Request(put_wait_data);
                         }
-                        this.timer1.Stop();
-                        timerlabel.Enabled = false;
-                        timerlabel.Visible = false;
+                        timerlabel.Text = "00";
+                        this.Update();
+                        timer1.Stop();
                         await uda_server_communication.Server_Request(put_started);
                         parentForm.closeMessage();
                     }
                     break;
                 }
-
+ 
             }
         }
 
