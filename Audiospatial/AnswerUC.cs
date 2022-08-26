@@ -19,16 +19,19 @@ namespace Audiospatial
     {
         public Main parentForm { get; set; }
         private int iDifficulty = 0;
-        public int timeleft = 10;
+        public int timeleft = 15;
         public string k;
         public string put_wait_data;
         public string put_started;
         public string get_status_uda;
+        public string put_pause;
         public AnswerUC()
         {
             InitializeComponent();
             btAnswer.Visible = false;
             txtResult.Visible = false;
+
+            put_pause = "/api/uda/put/?i=5&k=9";
             put_started = "/api/uda/put/?i=5&k=7";
             put_wait_data = "/api/uda/put/?i=5&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
             get_status_uda = "/api/uda/get/?i=5";
@@ -84,8 +87,9 @@ namespace Audiospatial
         public void counter()
         {
             timerlabel.Visible = true;
-            timerlabel.Text = "2";
-            timeleft = 2;
+            label1.Visible = true;  
+            timerlabel.Text = "15";
+            timeleft = 15;
             timer1.Enabled = true;
             timer1.Start();
         }
@@ -96,28 +100,37 @@ namespace Audiospatial
             {
                 while (true)
                 {
-                    k = parentForm.Status_Changed(parentForm.activity_form);
+                    string k = parentForm.Status_Changed(parentForm.activity_form);
                     int status = int.Parse(k);
                     string response = null;
-                    if (status == 11 || status == 12)
-                    {
-                        Application.Exit();
-                        Environment.Exit(0);
-                    }
-                    if (status == 13)
-                    {
-                        this.Hide();
-                        parentForm.Abort_UDA();
-                        break;
-                    }
-
-                    if (status == 10 || status == 7 || status == 6 || status == 14)
-                    {
-
-                        if (status != 14)
+                    //if (status != 9 && status != 8)
+                    //{
+                        if (status == 11 || status == 12)
                         {
-                            await uda_server_communication.Server_Request(parentForm.wait_data());
+                            Application.Exit();
+                            Environment.Exit(0);
+                        }
+                        if (status == 13)
+                        {
+                            this.Hide();
+                            parentForm.Abort_UDA();
+                            break;
+                        }
+                        if (status==9 || status == 8)
+                    {
+                        MessageBox.Show("ciao");
+                        //await uda_server_communication.Server_Request(put_pause);
+                    }
 
+                        if (status == 10 || status == 7)
+                        {
+                            await uda_server_communication.Server_Request(put_wait_data);
+
+                          if (status != 14)
+                            {
+                                await uda_server_communication.Server_Request(put_wait_data);
+
+                            }
                         }
 
                         Thread.Sleep(1000);
@@ -144,42 +157,55 @@ namespace Audiospatial
                                         continue;
                                     }
                                     response = (string)explorer["answer"];
-                                    break;
+                                timer1.Stop();
+                                timer1.Enabled = false;
+                                timerlabel.Visible = false;
+                                label1.Visible = false;
+                                break;
                                 }
-                                if (response == null) {
+                                if (response == null)
+                                {
 
-                                    parentForm.PutStarted();
-                                    break; }
-                        
+
+                                    break;
+
+                                }
+                                parentForm.PutStarted();
                                 //   JToken data = await uda_server_communication.Server_Request_datasent(get_status_uda);
                                 timerlabel.Visible = false;
                                 label1.Visible = false;
-                                timer1.Stop();
-                                timer1.Enabled = false;
-                              
-                             //   await uda_server_communication.Server_Request(put_started);
-      
+                         //   timer1.Stop();
+                        //    timer1.Enabled = false;
+
+                                //   await uda_server_communication.Server_Request(put_started);
+
 
                                 // FIXME
                                 parentForm.onAnswer(response);
-                            
+
                             }
                             break;
-                        }
-                        break;
+                       // }
+
                     }
-                }
+
+                    break;
+                   
+                
 
             }
-            if (timeleft == 0)
-            {
-                string data1 = "900";
-                timerlabel.Visible = false;
-                parentForm.onAnswer(data1);
-                timer1.Enabled = false;
-                Thread.Sleep(1000);
-                await uda_server_communication.Server_Request(put_started);                
-                //Thread.Sleep(2000);               
+                if (timeleft == 0)
+                {
+                    string data1 = "900";
+                    timerlabel.Visible = false;
+                    parentForm.PutStarted();
+                    parentForm.onAnswer(data1);
+                    timer1.Enabled = false;
+                    Thread.Sleep(1000);
+                    timer1.Stop();
+                    timer1.Enabled = false;
+                }
+
             }
         }
     }

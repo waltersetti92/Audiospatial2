@@ -29,6 +29,8 @@ namespace Audiospatial
             speakers = new Speakers();
             put_started = "/api/uda/put/?i=5&k=7";
             put_wait_data = "/api/uda/put/?i=5&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
+            timerlabel.Text = "15";
+            timeleft = 15;
         }
         public void setPos(int w, int h)
         {
@@ -61,8 +63,8 @@ namespace Audiospatial
         public void counter()
         {
             timerlabel.Visible = true;
-            timerlabel.Text = "10";
-            timeleft = 10;
+            timeleft = 15;
+            timerlabel.Text = "15";
             timer1.Enabled = true;
             timer1.Start();
 
@@ -104,8 +106,12 @@ namespace Audiospatial
                             await uda_server_communication.Server_Request(put_wait_data);
                         }
                         Thread.Sleep(1000);
-                        timeleft--;
-                        timerlabel.Text = timeleft.ToString();
+                        timeleft = timeleft - 1;
+                        if (timeleft < 10 && timeleft > 0)
+                            timerlabel.Text = "0" + timeleft.ToString();
+                        else
+                            timerlabel.Text = timeleft.ToString();
+                        this.Update();
                     }
                     break;
                 }
@@ -133,12 +139,10 @@ namespace Audiospatial
                         {
                             await uda_server_communication.Server_Request(put_wait_data);
                         }
-                        this.timer1.Stop();
-                       // timerlabel.Enabled = false;
-                       // timerlabel.Visible = false;
+                        timerlabel.Text = "00";
+                        this.Update();
+                        timer1.Stop();
                         await uda_server_communication.Server_Request(put_started);
-                        timeleft = 10;
-                        timerlabel.Text = timeleft.ToString();
                         parentForm.closeMessage();
                     }
                     break;

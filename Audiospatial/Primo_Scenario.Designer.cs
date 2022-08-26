@@ -46,7 +46,7 @@
             this.labPrimoScenario.AutoSize = true;
             this.labPrimoScenario.BackColor = System.Drawing.Color.Transparent;
             this.labPrimoScenario.Font = new System.Drawing.Font("Snap ITC", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labPrimoScenario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.labPrimoScenario.ForeColor = System.Drawing.Color.MediumBlue;
             this.labPrimoScenario.Location = new System.Drawing.Point(366, 0);
             this.labPrimoScenario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labPrimoScenario.Name = "labPrimoScenario";
@@ -102,12 +102,12 @@
             // 
             this.timerlabel.AutoSize = true;
             this.timerlabel.BackColor = System.Drawing.Color.Transparent;
-            this.timerlabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 51F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerlabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 61F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerlabel.ForeColor = System.Drawing.Color.Black;
             this.timerlabel.Location = new System.Drawing.Point(1053, 690);
             this.timerlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.timerlabel.Name = "timerlabel";
-            this.timerlabel.Size = new System.Drawing.Size(172, 119);
+            this.timerlabel.Size = new System.Drawing.Size(204, 141);
             this.timerlabel.TabIndex = 12;
             this.timerlabel.Text = "15";
             this.timerlabel.Click += new System.EventHandler(this.timerlabel_Click);
@@ -117,7 +117,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.ForeColor = System.Drawing.Color.MediumBlue;
             this.label4.Location = new System.Drawing.Point(4, 303);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";

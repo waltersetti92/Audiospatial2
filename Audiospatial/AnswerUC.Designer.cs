@@ -39,17 +39,19 @@
             // txtResult
             // 
             this.txtResult.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResult.Location = new System.Drawing.Point(142, 160);
+            this.txtResult.Location = new System.Drawing.Point(213, 246);
+            this.txtResult.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtResult.Name = "txtResult";
-            this.txtResult.Size = new System.Drawing.Size(135, 52);
+            this.txtResult.Size = new System.Drawing.Size(200, 74);
             this.txtResult.TabIndex = 9;
             // 
             // btAnswer
             // 
             this.btAnswer.Font = new System.Drawing.Font("Comic Sans MS", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btAnswer.Location = new System.Drawing.Point(309, 160);
+            this.btAnswer.Location = new System.Drawing.Point(464, 246);
+            this.btAnswer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btAnswer.Name = "btAnswer";
-            this.btAnswer.Size = new System.Drawing.Size(273, 52);
+            this.btAnswer.Size = new System.Drawing.Size(410, 80);
             this.btAnswer.TabIndex = 10;
             this.btAnswer.Text = "RISPONDI";
             this.btAnswer.UseVisualStyleBackColor = true;
@@ -59,9 +61,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Snap ITC", 50.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(493, 86);
+            this.label1.Size = new System.Drawing.Size(739, 130);
             this.label1.TabIndex = 11;
             this.label1.Text = "RISPONDI!";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -76,16 +79,17 @@
             this.timerlabel.BackColor = System.Drawing.Color.Transparent;
             this.timerlabel.Font = new System.Drawing.Font("Snap ITC", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerlabel.ForeColor = System.Drawing.Color.Black;
-            this.timerlabel.Location = new System.Drawing.Point(177, 97);
+            this.timerlabel.Location = new System.Drawing.Point(266, 196);
+            this.timerlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.timerlabel.Name = "timerlabel";
-            this.timerlabel.Size = new System.Drawing.Size(126, 86);
+            this.timerlabel.Size = new System.Drawing.Size(189, 130);
             this.timerlabel.TabIndex = 12;
-            this.timerlabel.Text = "10";
+            this.timerlabel.Text = "15";
             this.timerlabel.Click += new System.EventHandler(this.timerlabel_Click);
             // 
             // AnswerUC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Transparent;
@@ -93,8 +97,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btAnswer);
             this.Controls.Add(this.txtResult);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AnswerUC";
-            this.Size = new System.Drawing.Size(851, 383);
+            this.Size = new System.Drawing.Size(1276, 589);
             this.Load += new System.EventHandler(this.AnswerUC_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

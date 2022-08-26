@@ -30,14 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.labPrimoScenario = new System.Windows.Forms.Label();
-            this.labIndicazioni1 = new System.Windows.Forms.Label();
             this.labIstruzioni2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.Alarm = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timerlabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Alarm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,82 +45,37 @@
             this.labPrimoScenario.AutoSize = true;
             this.labPrimoScenario.BackColor = System.Drawing.Color.Transparent;
             this.labPrimoScenario.Font = new System.Drawing.Font("Snap ITC", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labPrimoScenario.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.labPrimoScenario.Location = new System.Drawing.Point(448, 0);
+            this.labPrimoScenario.ForeColor = System.Drawing.Color.MediumBlue;
+            this.labPrimoScenario.Location = new System.Drawing.Point(366, 0);
+            this.labPrimoScenario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labPrimoScenario.Name = "labPrimoScenario";
-            this.labPrimoScenario.Size = new System.Drawing.Size(608, 58);
+            this.labPrimoScenario.Size = new System.Drawing.Size(906, 88);
             this.labPrimoScenario.TabIndex = 2;
             this.labPrimoScenario.Text = "ATTENTI AL LEONE!";
-            // 
-            // labIndicazioni1
-            // 
-            this.labIndicazioni1.AutoSize = true;
-            this.labIndicazioni1.BackColor = System.Drawing.Color.Transparent;
-            this.labIndicazioni1.Font = new System.Drawing.Font("Stencil", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labIndicazioni1.ForeColor = System.Drawing.Color.Black;
-            this.labIndicazioni1.Location = new System.Drawing.Point(70, 109);
-            this.labIndicazioni1.Name = "labIndicazioni1";
-            this.labIndicazioni1.Size = new System.Drawing.Size(637, 38);
-            this.labIndicazioni1.TabIndex = 3;
-            this.labIndicazioni1.Text = "UN LEONE TI HA BLOCCATO LA STRADA!";
             // 
             // labIstruzioni2
             // 
             this.labIstruzioni2.AutoSize = true;
             this.labIstruzioni2.BackColor = System.Drawing.Color.Transparent;
             this.labIstruzioni2.Font = new System.Drawing.Font("Stencil", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labIstruzioni2.ForeColor = System.Drawing.Color.Black;
-            this.labIstruzioni2.Location = new System.Drawing.Point(70, 179);
+            this.labIstruzioni2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.labIstruzioni2.Location = new System.Drawing.Point(4, 303);
+            this.labIstruzioni2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labIstruzioni2.Name = "labIstruzioni2";
-            this.labIstruzioni2.Size = new System.Drawing.Size(986, 38);
+            this.labIstruzioni2.Size = new System.Drawing.Size(961, 57);
             this.labIstruzioni2.TabIndex = 4;
-            this.labIstruzioni2.Text = "SENTIRAI IL RUGGITO DEL LEONE DALLE CASSE DAVANTI A TE";
+            this.labIstruzioni2.Text = "...PER EVITARE IL LEONE DAVANTI A TE!";
             this.labIstruzioni2.Click += new System.EventHandler(this.labIstruzioni2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Stencil", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(70, 249);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1101, 34);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "RICORDA CHE AD OGNI CASSA CORRISPONDE UNA OPERAZIONE MATEMATICA";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Stencil", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(70, 319);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1039, 34);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "LE OPERAZIONI RELATIVE ALLE CASSE COMPARIRANNO SULLO SCHERMO";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Snap ITC", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label3.Location = new System.Drawing.Point(552, 398);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(525, 51);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "IN BOCCA AL LUPO!";
             // 
             // Alarm
             // 
             this.Alarm.BackColor = System.Drawing.Color.Transparent;
             this.Alarm.ErrorImage = null;
             this.Alarm.Image = global::Audiospatial.Properties.Resources.Cartoon_Lion;
-            this.Alarm.Location = new System.Drawing.Point(658, 470);
+            this.Alarm.Location = new System.Drawing.Point(735, 743);
+            this.Alarm.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Alarm.Name = "Alarm";
-            this.Alarm.Size = new System.Drawing.Size(176, 121);
+            this.Alarm.Size = new System.Drawing.Size(264, 186);
             this.Alarm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Alarm.TabIndex = 8;
             this.Alarm.TabStop = false;
@@ -135,29 +89,69 @@
             // 
             this.timerlabel.AutoSize = true;
             this.timerlabel.BackColor = System.Drawing.Color.Transparent;
-            this.timerlabel.Font = new System.Drawing.Font("Snap ITC", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timerlabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 51F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timerlabel.ForeColor = System.Drawing.Color.Black;
-            this.timerlabel.Location = new System.Drawing.Point(546, 470);
+            this.timerlabel.Location = new System.Drawing.Point(1053, 690);
+            this.timerlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.timerlabel.Name = "timerlabel";
-            this.timerlabel.Size = new System.Drawing.Size(126, 86);
+            this.timerlabel.Size = new System.Drawing.Size(172, 119);
             this.timerlabel.TabIndex = 15;
             this.timerlabel.Text = "10";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(12, 181);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(699, 63);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "RISOLVI LE OPERAZIONI...";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(12, 419);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(1229, 63);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "FAI ATTENZIONE ALLA POSIZIONE DEI SUONI... ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Stencil", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(4, 534);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(1452, 63);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "...AD OGNI POSIZIONE CORRISPONDE UNA OPERAZIONE!";
+            // 
             // Quinto_Scenario
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Audiospatial.Properties.Resources.lion;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.timerlabel);
             this.Controls.Add(this.Alarm);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.labIstruzioni2);
-            this.Controls.Add(this.labIndicazioni1);
             this.Controls.Add(this.labPrimoScenario);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Quinto_Scenario";
-            this.Size = new System.Drawing.Size(781, 654);
+            this.Size = new System.Drawing.Size(1172, 1006);
             this.Load += new System.EventHandler(this.Quinto_Scenario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Alarm)).EndInit();
             this.ResumeLayout(false);
@@ -168,13 +162,12 @@
         #endregion
 
         private System.Windows.Forms.Label labPrimoScenario;
-        private System.Windows.Forms.Label labIndicazioni1;
         private System.Windows.Forms.Label labIstruzioni2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox Alarm;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label timerlabel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

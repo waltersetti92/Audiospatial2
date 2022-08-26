@@ -131,6 +131,12 @@ namespace Audiospatial
             await uda_server_communication.Server_Request("api/uda/put/?i=5&k=7&data=" + data_start);
 
         }
+
+        public async void PutPause()
+        {
+            await uda_server_communication.Server_Request("api/uda/put/?i=5&k=9");
+
+        }
         private Activities readActivitiesList()
         {
             /*var jsonString = @"{""items"":[[{""difficulty"":2, ""id"":1, ""operands"":[1,2,3,4], ""operations"":[0,1,2]}, {""difficulty"":0, ""id"":2, ""operands"":[1,2,3,4], ""operations"":[0,1,2]}]]}";*/
@@ -223,11 +229,10 @@ namespace Audiospatial
                 }
                 if (status == 8)
                 {
+                    PutPause();
                 }
                 if (status == 9)
                 {
-
-
                 }
                 if (status == 11 || status == 12)
                 {

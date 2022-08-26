@@ -15,7 +15,7 @@ namespace Audiospatial
     {
         public Main parentForm { get; set; }
         public Speakers speakers = null;
-        public int timeleft = 10; //timeleft deve essere 0
+        public int timeleft = 15; //timeleft deve essere 0
         public int timer_game = 0;
         public int seconds = 0;
         public int minutes = 5;
@@ -32,6 +32,7 @@ namespace Audiospatial
             put_wait_data = "/api/uda/put/?i=5&k=14" + "&data=" + "{\"answer\": \"Inserisci il risultato corretto\", \"input_type\":\"\"}";
             timerlabel.Text = "15";
             timeleft = 15;
+     
 
         }
         public void setPos(int w, int h)
@@ -61,6 +62,7 @@ namespace Audiospatial
 
         private void Primo_Scenario_Load(object sender, EventArgs e)
         {
+            parentForm.PutStarted();
         }
 
         
@@ -74,7 +76,9 @@ namespace Audiospatial
             timeleft = 15;
             timerlabel.Text = "15";
             timer1.Enabled = true;
+            parentForm.PutStarted();
             timer1.Start();
+            parentForm.PutStarted();
 
         }
 
@@ -83,9 +87,10 @@ namespace Audiospatial
             if (timeleft > 0)
             {
                 while (true)
-                {
+                {      
                     string k = parentForm.Status_Changed(parentForm.activity_form);
                     int status = int.Parse(k);
+
                     if (status != 9 && status != 8)
                     {
                         if (status == 11 || status == 12)
@@ -101,7 +106,7 @@ namespace Audiospatial
                         }
                         if (status == 10 || status==7)
                         {
-                            await uda_server_communication.Server_Request(put_wait_data);
+                            await uda_server_communication.Server_Request(put_started);
                         }
                         Thread.Sleep(1000);
                         timeleft = timeleft - 1;
