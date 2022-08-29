@@ -104,7 +104,7 @@ namespace Audiospatial
                             parentForm.Abort_UDA();
                             break;
                         }
-                        if (status == 10 || status==7)
+                        if (status == 10)
                         {
                             await uda_server_communication.Server_Request(put_started);
                         }
